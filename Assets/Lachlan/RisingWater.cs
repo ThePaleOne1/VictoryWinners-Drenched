@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RisingWater : MonoBehaviour
 {
+    [SerializeField]
+    float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,6 @@ public class RisingWater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.up * speed * Time.deltaTime, Space.World);
     }
 }
