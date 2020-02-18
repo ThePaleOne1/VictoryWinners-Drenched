@@ -4,52 +4,74 @@ using UnityEngine;
 
 public class DragNDrop : MonoBehaviour
 {
-    private float ZPosition;
+    private GameObject itemDrag;
+
+    private Vector3 screenPosition;
 
     private Vector3 offset;
 
+    private float planeY;
+
+    private float distance;
+
     Camera MainCamera;
 
-    bool Dragging;
     
+
+    //bool Dragging;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Transform draggingObject;
+
+        //Plane plane = new Plane(Vector3.up, Vector3.up * planeY);
+
+        //Ray ray = MainCamera.PointScreenToRay(Input.mousePosition);
+
+        
+
         MainCamera = Camera.main;
-        ZPosition = MainCamera.WorldToScreenPoint(transform.position).z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Dragging)
+        if (itemDrag == null && Input.GetMouseButtonDown(0))
         {
-            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, ZPosition);
-            transform.position = MainCamera.ScreenToWorldPoint(position + new Vector3(offset.x, offset.z));
-        }   
-    }
+            RaycastHit hit;
+            Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out hit, 100.0f))
+            {
+                if(gameObject == hit.transform.gameObject)
+                {
+                    itemDrag = hit.transform.gameObject;
+                    screenPosition = MainCamera.ScreenToWorldPoint(itemDrag.transform.position);
+                    offset = itemDrag.transform.position - MainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z));
 
-    void OnMouseDown()
-    {
-        if (!Dragging)
-        {
-            BeginDragging();
+                    print("dragging");
+                }
+                
+            }
         }
-    }
 
-    void OnMouseUp()
-    {
-        EndDragging();
-    }
+        
 
-    public void BeginDragging()
-    {
-        Dragging = true;
-        offset = MainCamera.WorldToScreenPoint(transform.position) - Input.mousePosition;
-    }
+        //if (plane.Raycast(ray, out distance))
+        //{
+        //    draggingObject.position = ray.GetPoint(distance);
+        //}
 
-    public void EndDragging()
-    {
-        Dragging = false;
+        if (Input.GetMouseButtonUp(0))
+        {
+            itemDrag = null;
+        }
+
+        if(itemDrag != null)
+        {
+            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z);
+            Vector3 curPosition = MainCamera.ScreenToWorldPoint(position) + offset;
+            itemDrag.transform.position = new Vector3(curPosition.x, itemDrag.transform.position.y, curPosition.z);
+        }
     }
 }
