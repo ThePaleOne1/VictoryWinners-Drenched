@@ -10,6 +10,11 @@ public class AITEST : MonoBehaviour
 
     [SerializeField]
     float wandDistance;
+
+    [SerializeField]
+    GameObject[] otherAgents;
+    [SerializeField]
+    float detectDistance = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +28,23 @@ public class AITEST : MonoBehaviour
         if (agent.pathStatus == NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid)
         {
             clock -= Time.deltaTime;
+            foreach (GameObject obj in otherAgents)
+            {
+                if (Vector3.Distance(transform.position, obj.transform.position) < detectDistance)
+                {
+                    agent.SetDestination(RandomNavSphere(obj.transform.position, detectDistance / 2, -1));
+                    clock = Random.Range(0, 5);
+                }
+            }
         }
 
         if (clock <= 0)
         {
             Wander();
         }
+
+        
+
     }
 
     void Wander()
