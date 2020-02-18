@@ -631,8 +631,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972323841585261451, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
         type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972323841585261451, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
+        type: 3}
       propertyPath: m_PlayAutomatically
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6972323841585261451, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
+        type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: -203655887218126122, guid: a58ac00682a543049a1ef9a80c31fe0e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d06ddf2787cfb845affdb8cb4f11b58, type: 3}
