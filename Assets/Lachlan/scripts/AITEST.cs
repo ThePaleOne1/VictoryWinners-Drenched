@@ -25,18 +25,20 @@ public class AITEST : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDoingStuff)
-        { 
-            if (agent.pathStatus == NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid)
-            {
-                clock -= Time.deltaTime;
-            }
-
-        if (clock <= 0)
+        if (!isDoingStuff)
         {
-            Wander();
+            //if (agent.pathStatus == NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid)
+            //{
+                clock -= Time.deltaTime;
+            //}
+
+            if (clock <= 0)
+            {
+                Wander();
+            }
         }
-    }
+
+        //print(agent.pathStatus);
 
         destination.transform.position = agent.destination;
 
@@ -61,19 +63,20 @@ public class AITEST : MonoBehaviour
         return navHit.position;
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
-        print("entering trigger");
+        
         if (col.CompareTag("Character") && CompareTag("Character"))
         {
             print("Character has met another character");
-            agent.SetDestination(RandomNavSphere(col.transform.position, wandDistance/2, -1));
+            agent.SetDestination(RandomNavSphere(col.transform.position, wandDistance/5, -1));
         }
 
         if (col.CompareTag("Threat") && CompareTag("Character"))
         {
             print("character has met a threat");
-            agent.SetDestination((col.transform.position - transform.position) * (-1));
+            agent.SetDestination(transform.position + (transform.position - col.transform.position));
+
         }
     }
 
