@@ -14,8 +14,10 @@ public class AITEST : MonoBehaviour
 
     [SerializeField]
     GameObject destination;
+    [SerializeField]
+    float HuddleTogetherDistance = 1;
 
-    bool isDoingStuff;
+    public bool isDoingStuff;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -62,23 +64,36 @@ public class AITEST : MonoBehaviour
 
         return navHit.position;
     }
-
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Character") && CompareTag("Character"))
         {
             print("Character has met another character");
-            agent.SetDestination(RandomNavSphere(col.transform.position, wandDistance / 5, -1));
+            agent.SetDestination(RandomNavSphere(col.transform.position, HuddleTogetherDistance, -1));
         }
     }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("Character") && CompareTag("Character"))
+        {
+            print("Character has met another character");
+            agent.SetDestination(RandomNavSphere(col.transform.position, HuddleTogetherDistance, -1));
+        }
+    }
+
     private void OnTriggerStay(Collider col)
     {
-        
-        
+        //if (col.CompareTag("Character") && CompareTag("Character"))
+        //{
+        //    print("Character has met another character");
+        //    agent.SetDestination(RandomNavSphere(col.transform.position, HuddleTogetherDistance, -1));
+        //}
+
 
         if (col.CompareTag("Threat") && CompareTag("Character"))
         {
-            print("character has met a threat");
+            //print("character has met a threat");
             agent.SetDestination(transform.position + (transform.position - col.transform.position));
 
         }
