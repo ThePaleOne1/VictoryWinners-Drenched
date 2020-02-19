@@ -63,14 +63,18 @@ public class AITEST : MonoBehaviour
         return navHit.position;
     }
 
-    private void OnTriggerStay(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
-        
         if (col.CompareTag("Character") && CompareTag("Character"))
         {
             print("Character has met another character");
-            agent.SetDestination(RandomNavSphere(col.transform.position, wandDistance/5, -1));
+            agent.SetDestination(RandomNavSphere(col.transform.position, wandDistance / 5, -1));
         }
+    }
+    private void OnTriggerStay(Collider col)
+    {
+        
+        
 
         if (col.CompareTag("Threat") && CompareTag("Character"))
         {
