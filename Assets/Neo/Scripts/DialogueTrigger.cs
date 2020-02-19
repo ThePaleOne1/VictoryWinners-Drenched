@@ -10,9 +10,11 @@ public class DialogueTrigger : MonoBehaviour
 
     public bool countdownEnd;
 
+    public GameObject button;
+
     void Start()
     {
-        
+
     }
     
     void Update()
@@ -40,6 +42,12 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        HideButton();
         FindObjectOfType<DialogPrompts>().StartDialog(dialogue);
+    }
+
+    public void HideButton()
+    {
+        button.SetActive(false);
     }
 }
