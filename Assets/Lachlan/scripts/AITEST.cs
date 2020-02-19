@@ -11,6 +11,11 @@ public class AITEST : MonoBehaviour
     [SerializeField]
     float wandDistance;
     // Start is called before the first frame update
+
+    [SerializeField]
+    GameObject destination;
+
+    bool isDoingStuff;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -20,15 +25,21 @@ public class AITEST : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (agent.pathStatus == NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid)
-        {
-            clock -= Time.deltaTime;
-        }
+        if (isDoingStuff)
+        { 
+            if (agent.pathStatus == NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid)
+            {
+                clock -= Time.deltaTime;
+            }
 
         if (clock <= 0)
         {
             Wander();
         }
+    }
+
+        destination.transform.position = agent.destination;
+
     }
 
     void Wander()
@@ -49,4 +60,21 @@ public class AITEST : MonoBehaviour
 
         return navHit.position;
     }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        print("entering trigger");
+        if (col.CompareTag("Character") && CompareTag("Character"))
+        {
+            print("Character has met another character");
+            agent.SetDestination(RandomNavSphere(col.transform.position, wandDistance/2, -1));
+        }
+
+        if (col.CompareTag("Threat") && CompareTag("Character"))
+        {
+            print("character has met a threat");
+            agent.SetDestination((col.transform.position - transform.position) * (-1));
+        }
+    }
+
 }
