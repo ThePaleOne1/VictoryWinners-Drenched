@@ -15,7 +15,7 @@ public class AITEST : MonoBehaviour
     [SerializeField]
     GameObject destination;
 
-    bool isDoingStuff;
+    public bool isDoingStuff;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
