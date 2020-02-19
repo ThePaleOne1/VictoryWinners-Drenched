@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wandDistance: 10
   destination: {fileID: 2882887366864842693}
+  HuddleTogetherDistance: 1
 --- !u!135 &1126668609398382759
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!54 &5144743929673633027
 Rigidbody:
