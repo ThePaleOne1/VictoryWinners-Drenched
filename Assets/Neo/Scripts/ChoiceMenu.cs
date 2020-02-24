@@ -27,24 +27,30 @@ public class ChoiceMenu : MonoBehaviour
     public void choice01Identifier()
     {
         choice01 = choice01.GetComponent<Button>();
+        
         choice01.onClick.AddListener(TaskOnClick01);
     }
 
     public void TaskOnClick01()
     {
         isPressed01 = true;
+        instance.DialogueBox.SetActive(true);
+        instance.dialogueText.text = "you picked option 1";
         print("choice 1 picked");
     }
 
     public void choice02Identifier()
     {
         choice02 = choice02.GetComponent<Button>();
+       
         choice02.onClick.AddListener(TaskOnClick02);
     }
 
     public void TaskOnClick02()
     {
         isPressed02 = true;
+        instance.DialogueBox.SetActive(true);
+        instance.dialogueText.text = "you picked option 2";
         print("choice 2 picked");
     }
 

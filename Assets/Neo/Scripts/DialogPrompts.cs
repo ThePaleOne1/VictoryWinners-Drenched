@@ -73,7 +73,13 @@ public class DialogPrompts : MonoBehaviour
 
     void EndDialogue()
     {
+        DialogueBox.SetActive(false);
         print("Fin");
         dialogueText.text = "";
+    }
+
+    void ChoiceDecided()
+    {
+        
     }
 }

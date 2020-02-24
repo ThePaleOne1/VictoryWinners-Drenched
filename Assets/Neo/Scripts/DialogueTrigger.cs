@@ -6,38 +6,22 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    public float timeLeft = 10;
-
-    public bool countdownEnd;
+    public bool newDay;
 
     public GameObject button;
 
     void Start()
     {
-
+        newDay = true;
     }
     
     void Update()
     {
-        if(countdownEnd = true)
-        {
-            if (timeLeft > 0)
-            {
-                timeLeft -= Time.deltaTime;
-                Debug.Log(timeLeft);
-            }
-            if(timeLeft == 0)
-            {
-                countdownEnd = false;
-            }
-        }
-
-        if (countdownEnd = false)
+        if (newDay)
         {
             TriggerDialogue();
-            
-            countdownEnd = true;
-        }
+            newDay = false;
+        } 
     }
 
     public void TriggerDialogue()
