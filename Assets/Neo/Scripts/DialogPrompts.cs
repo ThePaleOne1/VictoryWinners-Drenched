@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
+public class ChoiceEvents : UnityEvent<DialogueChoices> { }
 
 public class DialogPrompts : MonoBehaviour
 {
@@ -16,6 +19,10 @@ public class DialogPrompts : MonoBehaviour
     private float TypingSpeed = 0.001f;
 
     public ChoiceMenu callChoices;
+
+    public DialogueChoices choices;
+
+    private bool dialogueStart;
     
     // Start is called before the first frame update
     void Start()
@@ -24,9 +31,16 @@ public class DialogPrompts : MonoBehaviour
 
         continueText = GameObject.Find("Continue");
 
-        callChoices.choice01.gameObject.SetActive(false);
-        callChoices.choice02.gameObject.SetActive(false);
+        callChoices.choiceButton.gameObject.SetActive(false);
+       
     }
+
+    //public void ChangeDialogue(Dialogue newDialogue)
+    //{
+    //    dialogueStart = false;
+    //    sentences = newDialogue;
+    //    StartDialog(); 
+    //}
 
     public void StartDialog(Dialogue dialogue)
     {
@@ -47,8 +61,6 @@ public class DialogPrompts : MonoBehaviour
     {
         if(sentences.Count == 0)
         {
-            callChoices.choice01.gameObject.SetActive(true);
-            callChoices.choice02.gameObject.SetActive(true);
             EndDialogue();
             return;
         }
@@ -58,6 +70,22 @@ public class DialogPrompts : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
+
+    //public void DisplayNewDialogue()
+    //{
+    //    if (choices.choicetext != null)
+    //    {
+    //        ChoiceEvents.Invoke(DialogPrompts.choices);
+    //    }
+    //    else if (DialogPrompts.ChangeDialogue != null)
+    //    {
+    //        ChangeDialogue(dialogueStart.newDialogue);
+    //    }
+    //    else
+    //    {
+    //        EndDialogue();
+    //    }
+    //}
 
     IEnumerator TypeSentence (string sentence)
     {
@@ -73,13 +101,9 @@ public class DialogPrompts : MonoBehaviour
 
     void EndDialogue()
     {
+        dialogueStart = false;
         DialogueBox.SetActive(false);
         print("Fin");
         dialogueText.text = "";
-    }
-
-    void ChoiceDecided()
-    {
-        
     }
 }

@@ -746,18 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0975ab4536bb6344839ef27d0736169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - Tyrone you are but casual scum. Why don't you play a real Shen Magoomy Tensay
-      game like Knock Turn or Strange Journey?
-    - Persona 4 is a casualised dating sim that panders to lonely waifu phegs.
-    - Visual novels n shit. I'll be here fighting angels in the name of Chaos. Can
-      you even take on the armies of YHVH and claim the world in Lucifer's own glory?
-      Do you even dungeon crawl?
-    - I bet you dream of holding chee's hand instead of claiming the world in the
-      name of Chaos. Try not to feel too bad but the objective best waifu in the
-      series is Louisa Ferre from Strange Journey and chee is but a baker and unpure
-      girl compared to her.
+  dialogue: {fileID: 11400000, guid: b131027741e569b49aee25b260973a13, type: 2}
   newDay: 0
   button: {fileID: 654182848}
 --- !u!114 &654182851
@@ -1307,7 +1296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1652115760}
   - component: {fileID: 1652115759}
-  - component: {fileID: 1652115761}
   m_Layer: 0
   m_Name: ChoiceMenu
   m_TagString: Untagged
@@ -1327,8 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21cf63973aa7a7408564d80bc750251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choice01: {fileID: 506990985}
-  choice02: {fileID: 0}
+  choiceButton: {fileID: 506990985}
 --- !u!4 &1652115760
 Transform:
   m_ObjectHideFlags: 0
@@ -1344,18 +1331,6 @@ Transform:
   m_Father: {fileID: 2038229262}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1652115761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652115758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13c75b1747d5ebd4d9451c26de9663bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1934585420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,7 +1519,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1652115759}
+      objectReference: {fileID: 1187524118}
+    - target: {fileID: 7982910231869650720, guid: b309392b927df2244b77d3fdbe0311cd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
+      objectReference: {fileID: 0}
     - target: {fileID: 7982910231869650721, guid: b309392b927df2244b77d3fdbe0311cd,
         type: 3}
       propertyPath: m_LocalPosition.x

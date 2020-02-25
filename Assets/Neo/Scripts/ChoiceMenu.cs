@@ -9,16 +9,15 @@ public class ChoiceMenu : MonoBehaviour
     Dialogue dialogue;
     DialogueTrigger trigger;
 
-    public Button choice01;
-    public Button choice02;
+    public Button choiceButton;
 
     private bool isPressed01 = false;
     private bool isPressed02 = false;
 
     public void DisplayChoices()
     {
-        choice01.gameObject.SetActive(true);
-        choice01.gameObject.SetActive(true);
+        choiceButton.gameObject.SetActive(true);
+        
 
         choice01Identifier();
         choice02Identifier();
@@ -26,9 +25,9 @@ public class ChoiceMenu : MonoBehaviour
 
     public void choice01Identifier()
     {
-        choice01 = choice01.GetComponent<Button>();
+        choiceButton = choiceButton.GetComponent<Button>();
         
-        choice01.onClick.AddListener(TaskOnClick01);
+        choiceButton.onClick.AddListener(TaskOnClick01);
     }
 
     public void TaskOnClick01()
@@ -41,9 +40,7 @@ public class ChoiceMenu : MonoBehaviour
 
     public void choice02Identifier()
     {
-        choice02 = choice02.GetComponent<Button>();
        
-        choice02.onClick.AddListener(TaskOnClick02);
     }
 
     public void TaskOnClick02()
@@ -58,16 +55,16 @@ public class ChoiceMenu : MonoBehaviour
     {
         if(isPressed01 == true)
         {
-            choice01.gameObject.SetActive(false);
-            choice02.gameObject.SetActive(false);
+            choiceButton.gameObject.SetActive(false);
+           
 
             isPressed01 = false;
             isPressed02 = false;
         }
         else if(isPressed02 == true)
         {
-            choice01.gameObject.SetActive(false);
-            choice02.gameObject.SetActive(false);
+            choiceButton.gameObject.SetActive(false);
+            
 
             isPressed01 = false;
             isPressed02 = false;

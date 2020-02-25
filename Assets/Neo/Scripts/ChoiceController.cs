@@ -11,13 +11,13 @@ public class ChoiceController : MonoBehaviour
     public Choice choices;
     public DialogueChangeEvent dialogueChangeEvent;
 
-    public static ChoiceController AddChoiceButton(Button Choice_Button, Choice choices, int index)
+    public static ChoiceController AddChoiceButton(Button choiceButton, Choice choices, int index)
     {
         int buttonSpacing = -40;
 
-        Button button = Instantiate(Choice_Button);
+        Button button = Instantiate(choiceButton);
 
-        button.transform.SetParent(Choice_Button.transform.parent);
+        button.transform.SetParent(choiceButton.transform.parent);
         button.transform.localScale = Vector3.one;
         button.transform.localPosition = new Vector3(0, index * buttonSpacing, 0);
         button.name = "Choice " + (index + 1);
