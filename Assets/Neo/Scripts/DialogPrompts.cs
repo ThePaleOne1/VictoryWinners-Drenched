@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class ChoiceEvents : UnityEvent<DialogueChoices> { }
+public class ChoiceEvent : UnityEvent<DialogueChoices> { }
 
 public class DialogPrompts : MonoBehaviour
 {
@@ -18,9 +18,11 @@ public class DialogPrompts : MonoBehaviour
 
     private float TypingSpeed = 0.001f;
 
-    public ChoiceMenu callChoices;
-
     public DialogueChoices choices;
+
+    public DialogueTrigger trigger;
+
+    //public Dialogue dialogue;
 
     private bool dialogueStart;
     
@@ -29,18 +31,15 @@ public class DialogPrompts : MonoBehaviour
     {
         sentences = new Queue<string>();
 
-        continueText = GameObject.Find("Continue");
-
-        callChoices.choiceButton.gameObject.SetActive(false);
-       
+        continueText = GameObject.Find("Continue"); 
     }
 
-    //public void ChangeDialogue(Dialogue newDialogue)
-    //{
-    //    dialogueStart = false;
-    //    sentences = newDialogue;
-    //    StartDialog(); 
-    //}
+    public void ChangeDialogue(Dialogue newDialogue)
+    {
+        dialogueStart = false;
+        trigger.dialogue = newDialogue;
+        trigger.TriggerDialogue();
+    }
 
     public void StartDialog(Dialogue dialogue)
     {
@@ -53,6 +52,7 @@ public class DialogPrompts : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
+        dialogueStart = true;
         DisplayNextSentence();
         continueText.SetActive(false);
     }
@@ -71,21 +71,21 @@ public class DialogPrompts : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    //public void DisplayNewDialogue()
-    //{
-    //    if (choices.choicetext != null)
-    //    {
-    //        ChoiceEvents.Invoke(DialogPrompts.choices);
-    //    }
-    //    else if (DialogPrompts.ChangeDialogue != null)
-    //    {
-    //        ChangeDialogue(dialogueStart.newDialogue);
-    //    }
-    //    else
-    //    {
-    //        EndDialogue();
-    //    }
-    //}
+    public void DisplayNewDialogue()
+    {
+        if (choices != null)
+        {
+            //ChoiceEvent.Invoke(choices);
+        }
+        else if (trigger.newDialogue != null)
+        {
+            ChangeDialogue(trigger.newDialogue);
+        }
+        else
+        {
+            EndDialogue();
+        }
+    }
 
     IEnumerator TypeSentence (string sentence)
     {
