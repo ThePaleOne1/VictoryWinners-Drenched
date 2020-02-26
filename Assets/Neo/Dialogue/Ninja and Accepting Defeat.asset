@@ -18,5 +18,3 @@ MonoBehaviour:
   - "When you stop getting angry after losing, you\u2019ve lost twice. "
   - "There\u2019s always something to learn, and always room for improvement, never
     settle."
-  choice: {fileID: 11400000, guid: ca94ee124cd5b744390b337cf601f34d, type: 2}
-  newDialogue: {fileID: 0}

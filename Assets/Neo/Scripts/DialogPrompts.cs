@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class ChoiceEvents : UnityEvent<DialogueChoices> { }
+public class ChoiceEvent : UnityEvent<DialogueChoices> { }
 
 public class DialogPrompts : MonoBehaviour
 {
@@ -18,9 +18,11 @@ public class DialogPrompts : MonoBehaviour
 
     private float TypingSpeed = 0.001f;
 
+    public DialogueChoices choices;
+
     public DialogueTrigger trigger;
 
-    public Dialogue dialogue;
+    //public Dialogue dialogue;
 
     private bool dialogueStart;
     
@@ -35,7 +37,7 @@ public class DialogPrompts : MonoBehaviour
     public void ChangeDialogue(Dialogue newDialogue)
     {
         dialogueStart = false;
-        dialogue = newDialogue;
+        trigger.dialogue = newDialogue;
         trigger.TriggerDialogue();
     }
 
@@ -71,13 +73,13 @@ public class DialogPrompts : MonoBehaviour
 
     public void DisplayNewDialogue()
     {
-        if (dialogue.choice != null)
+        if (choices != null)
         {
-            //ChoiceEvent.Invoke(dialogue.choice);
+            //ChoiceEvent.Invoke(choices);
         }
-        else if (dialogue.newDialogue != null)
+        else if (trigger.newDialogue != null)
         {
-            ChangeDialogue(dialogue.newDialogue);
+            ChangeDialogue(trigger.newDialogue);
         }
         else
         {
