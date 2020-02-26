@@ -45,8 +45,8 @@ public class ChoiceMenu : MonoBehaviour
 
     public void TaskOnClick02()
     {
-        isPressed02 = true;
-        instance.DialogueBox.SetActive(true);
+        isPressed02 = true;
+        instance.DialogueBox.SetActive(true);
         instance.dialogueText.text = "you picked option 2";
         print("choice 2 picked");
     }
