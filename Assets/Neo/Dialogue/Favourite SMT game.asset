@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 805ee74ba2d813c41848488265e1432c, type: 3}
-  m_Name: Ninja and Accepting Defeat
+  m_Name: Favourite SMT game
   m_EditorClassIdentifier: 
   sentences:
-  - "The phrase \u201Cit\u2019s just a game\u201D is such a weak mindset."
-  - You are ok with what happened, losing, imperfection of a craft.
-  - "When you stop getting angry after losing, you\u2019ve lost twice. "
-  - "There\u2019s always something to learn, and always room for improvement, never
-    settle."
+  - What SMT game do you like?
   choice: {fileID: 11400000, guid: ca94ee124cd5b744390b337cf601f34d, type: 2}
   newDialogue: {fileID: 0}
