@@ -10,6 +10,10 @@ public class DialogueTrigger : MonoBehaviour
 
     public GameObject button;
 
+    public DialogueChoices choices;
+
+    public Dialogue newDialogue;
+
     void Start()
     {
         newDay = true;

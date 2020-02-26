@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class AITEST : MonoBehaviour
 {
-    public NavMeshAgent agent;
+    NavMeshAgent agent;
     float clock;
 
     [SerializeField]
@@ -84,8 +84,16 @@ public class AITEST : MonoBehaviour
 
     private void OnTriggerStay(Collider col)
     {
+        //if (col.CompareTag("Character") && CompareTag("Character"))
+        //{
+        //    print("Character has met another character");
+        //    agent.SetDestination(RandomNavSphere(col.transform.position, HuddleTogetherDistance, -1));
+        //}
+
+
         if (col.CompareTag("Threat") && CompareTag("Character"))
         {
+            //print("character has met a threat");
             agent.SetDestination(transform.position + (transform.position - col.transform.position));
 
         }
