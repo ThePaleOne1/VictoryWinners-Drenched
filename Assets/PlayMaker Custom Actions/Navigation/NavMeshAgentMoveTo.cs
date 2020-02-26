@@ -96,7 +96,7 @@ namespace HutongGames.PlayMaker.Actions
 
 			if(compAgent.remainingDistance > compAgent.stoppingDistance) return;
 
-			if(!compAgent.hasPath || compAgent.velocity.sqrMagnitude == 0f)
+			if(!compAgent.hasPath || compAgent.velocity.sqrMagnitude == 0f || compAgent.destination != target.Value.transform.position)
 			{ 
 				Fsm.Event(reachedTargetEvent);
 			}
