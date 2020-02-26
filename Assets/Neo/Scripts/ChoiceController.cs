@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class DialogueChangeEvent : UnityEvent<Dialogue> { }
+
 public class ChoiceController : MonoBehaviour
 {
     public Choice choices;
