@@ -302,12 +302,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a824e226ac828a7459a5caefeffeb2e4, type: 3}
---- !u!1 &754766448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1181895751000070173, guid: 756422adb5b66c54fb15d6a40e4b5df2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1762327341}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &940578006 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1433066628447366242, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
@@ -492,6 +486,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraAnchor
       objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070172, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.39843363
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070172, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0019235238
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070172, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00083546934
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070172, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.91719484
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070172, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.30322725
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070172, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.7294035
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070172, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.374416
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181895751000070179, guid: 756422adb5b66c54fb15d6a40e4b5df2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756422adb5b66c54fb15d6a40e4b5df2, type: 3}
 --- !u!1 &1903917007
@@ -628,25 +662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serializedBlackboard: '{"_variables":{"mousePos":{"_propertyPath":"UnityEngine.Vector3.kEpsilon","_name":"mousePos","_id":"7c72bd59-7828-463a-96f7-0768641434dc","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Camera":{"_value":1,"_name":"Camera","_id":"7adea714-e098-4fa5-9110-ad4fd64e8a50","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"HitPosition":{"_propertyPath":"UnityEngine.Transform.position","_name":"HitPosition","_id":"79dd7b0d-17ea-432e-8896-9d9bda9b13f6","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 754766448}
-  _serializedVariables:
-  - _json: '{"_propertyPath":"UnityEngine.Vector3.kEpsilon","_name":"mousePos","_id":"7c72bd59-7828-463a-96f7-0768641434dc","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":1,"_name":"Camera","_id":"7adea714-e098-4fa5-9110-ad4fd64e8a50","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 754766448}
-  - _json: '{"_propertyPath":"UnityEngine.Transform.position","_name":"HitPosition","_id":"79dd7b0d-17ea-432e-8896-9d9bda9b13f6","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
+  _serializedBlackboard: '{"_variables":{}}'
+  _objectReferences: []
+  _serializedVariables: []
 --- !u!114 &2071728614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,33 +678,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"buttonKey":{},"_position":{"x":335.1909,"y":190.7236},"$type":"FlowCanvas.Nodes.MouseEvents","$id":"0"},{"_simplexNode":{},"_inputPortValues":{"speed":{"$content":1.0,"$type":"System.Single"},"stoppingDistance":{"$content":1.0,"$type":"System.Single"}},"_position":{"x":945.1107,"y":172.0201},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.MoveTo,
-    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"1"},{"_simplexNode":{},"_position":{"x":1332.0,"y":264.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.LogText,
-    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"2"},{"buttonKey":{},"mask":{"_value":{"value":55}},"_position":{"x":516.5672,"y":421.016},"$type":"FlowCanvas.Nodes.MousePickEvent","$id":"3"},{"_selectedInstanceMembers":["point"],"_position":{"x":824.9088,"y":427.9113},"$type":"FlowCanvas.Nodes.ReflectedExtractorNodeWrapper`1[[UnityEngine.RaycastHit,
-    UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"4"},{"_method":{"_baseInfo":"System.Object|ToString|System.String","_paramsInfo":""},"_position":{"x":1131.0,"y":467.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"5"},{"_method":{"_baseInfo":"UnityEngine.Input|get_mousePosition|UnityEngine.Vector3","_paramsInfo":""},"_position":{"x":-743.7029,"y":618.9997},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"6"},{"_method":{"_baseInfo":"UnityEngine.Camera|ScreenPointToRay|UnityEngine.Ray","_paramsInfo":"UnityEngine.Vector3"},"_position":{"x":-487.9759,"y":540.9971},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"7"},{"_method":{"_baseInfo":"UnityEngine.Collider|Raycast|System.Boolean","_paramsInfo":"UnityEngine.Ray|UnityEngine.RaycastHit&|System.Single"},"_inputPortValues":{"Collider":{"$content":1,"$type":"UnityEngine.CapsuleCollider"},"maxDistance":{"$content":10000.0,"$type":"System.Single"}},"_position":{"x":-372.8618,"y":670.1863},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"8"},{"value":{"_name":"Camera","_targetVariableID":"7adea714-e098-4fa5-9110-ad4fd64e8a50"},"_position":{"x":-739.7031,"y":449.0013},"$type":"FlowCanvas.Nodes.GetVariable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"9"},{"value":{"_name":"agent","_targetVariableID":"c626f209-ead3-48a4-88f2-539220d13582"},"_position":{"x":668.3262,"y":40.23993},"$type":"FlowCanvas.Nodes.GetVariable`1[[UnityEngine.AI.NavMeshAgent,
-    UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"10"}],"connections":[{"_sourcePortName":"Down","_targetPortName":"In","_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Out","_targetPortName":"
-    ","_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Pick
-    Info","_targetPortName":"Instance","_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.RaycastHit,
-    UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"point","_targetPortName":"destination","_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"point","_targetPortName":"Object","_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"FlowCanvas.BinderConnection`1[[System.Object,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"Value","_targetPortName":"text","_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"2"},"$type":"FlowCanvas.BinderConnection`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"Value","_targetPortName":"pos","_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"ray","_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Ray,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"Camera","_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"7"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Camera,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"agent","_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.AI.NavMeshAgent,
-    UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}],"canvasGroups":[],"localBlackboard":{"_variables":{"agent":{"_value":2,"_name":"agent","_id":"c626f209-ead3-48a4-88f2-539220d13582","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AI.NavMeshAgent,
-    UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
+  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"keyCode":{"_value":97},"_position":{"x":495.0,"y":-195.0},"$type":"FlowCanvas.Nodes.KeyboardEvents","$id":"0"},{"_method":{"_baseInfo":"UnityEngine.Transform|Translate|System.Void","_paramsInfo":"System.Single|System.Single|System.Single"},"_callable":true,"_position":{"x":855.0,"y":-195.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"1"},{"keyCode":{"_value":100},"_position":{"x":495.0,"y":-60.0},"$type":"FlowCanvas.Nodes.KeyboardEvents","$id":"2"},{"_method":{"_baseInfo":"UnityEngine.Transform|Translate|System.Void","_paramsInfo":"System.Single|System.Single|System.Single"},"_callable":true,"_position":{"x":855.0,"y":-45.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"3"},{"keyCode":{"_value":119},"_position":{"x":495.0,"y":75.0},"$type":"FlowCanvas.Nodes.KeyboardEvents","$id":"4"},{"_method":{"_baseInfo":"UnityEngine.Transform|Translate|System.Void","_paramsInfo":"System.Single|System.Single|System.Single"},"_callable":true,"_position":{"x":855.0,"y":105.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"5"},{"keyCode":{"_value":115},"_position":{"x":495.0,"y":210.0},"$type":"FlowCanvas.Nodes.KeyboardEvents","$id":"6"},{"_method":{"_baseInfo":"UnityEngine.Transform|Translate|System.Void","_paramsInfo":"System.Single|System.Single|System.Single"},"_callable":true,"_position":{"x":855.0,"y":270.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"7"},{"_method":{"_baseInfo":"UnityEngine.Input|get_mousePosition|UnityEngine.Vector3","_paramsInfo":""},"_position":{"x":-750.0,"y":615.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"8"},{"_method":{"_baseInfo":"UnityEngine.Camera|ScreenPointToRay|UnityEngine.Ray","_paramsInfo":"UnityEngine.Vector3"},"_position":{"x":-495.0,"y":540.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"9"},{"_method":{"_baseInfo":"UnityEngine.Collider|Raycast|System.Boolean","_paramsInfo":"UnityEngine.Ray|UnityEngine.RaycastHit&|System.Single"},"_inputPortValues":{"Collider":{"$content":1,"$type":"UnityEngine.CapsuleCollider"},"maxDistance":{"$content":10000.0,"$type":"System.Single"}},"_position":{"x":-375.0,"y":675.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"10"},{"value":{"_name":"Camera"},"_position":{"x":-735.0,"y":450.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"11"},{"value":{"_value":-0.05},"_position":{"x":705.0,"y":-120.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]","$id":"12"},{"value":{"_value":0.05},"_position":{"x":705.0,"y":30.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]","$id":"13"},{"value":{"_value":0.05},"_position":{"x":705.0,"y":180.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]","$id":"14"},{"value":{"_value":-0.05},"_position":{"x":705.0,"y":345.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]","$id":"15"}],"connections":[{"_sourcePortName":"Pressed","_targetPortName":"
+    ","_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Pressed","_targetPortName":"
+    ","_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Pressed","_targetPortName":"
+    ","_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Pressed","_targetPortName":"
+    ","_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Value","_targetPortName":"pos","_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"ray","_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Ray,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"Camera","_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"9"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Camera,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"x","_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"Value","_targetPortName":"x","_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"3"},"$type":"FlowCanvas.BinderConnection`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"Value","_targetPortName":"z","_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"5"},"$type":"FlowCanvas.BinderConnection`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"Value","_targetPortName":"z","_sourceNode":{"$ref":"15"},"_targetNode":{"$ref":"7"},"$type":"FlowCanvas.BinderConnection`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 940578009}
-  - {fileID: 2071728612}
   _boundGraphSource:
     _version: 3.03
     _category: 
     _comments: 
-    _translation: {x: -462, y: 79}
-    _zoomFactor: 0.99992466
+    _translation: {x: -195.00002, y: 279.99997}
+    _zoomFactor: 0.64829284
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
@@ -812,6 +829,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 522216160522742481, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6382507219540096170, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
         type: 3}
       propertyPath: m_RootOrder
