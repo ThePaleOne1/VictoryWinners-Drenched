@@ -10,5 +10,22 @@ public class mCursor : MonoBehaviour
     {
         //Set Cursor to not be visible
         Cursor.visible = false;
+
+        
     }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Cursor.visible = true;
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Cursor.visible = false;
+        }
+    }
+
+
 }
