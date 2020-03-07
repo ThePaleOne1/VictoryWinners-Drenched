@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class MenuScript : MonoBehaviour
         mainMenu.SetActive(true);
 
         playMenu.SetActive(false);
+    }
+
+    public void newGame(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 
     public void ClickPlay()
