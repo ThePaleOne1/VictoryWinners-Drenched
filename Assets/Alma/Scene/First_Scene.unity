@@ -512,7 +512,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1607696469}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &797341828
+--- !u!1 &940578006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1433066628447366242, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
+    type: 3}
+  m_PrefabInstance: {fileID: 6972323841662833537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &940578007
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940578006}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92314dff5f01a6b4786d5fb1c5032000, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1218654646
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -520,9 +545,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 797341831}
-  - component: {fileID: 797341830}
-  - component: {fileID: 797341829}
+  - component: {fileID: 1218654649}
+  - component: {fileID: 1218654648}
+  - component: {fileID: 1218654647}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -530,24 +555,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!154 &797341829
+--- !u!154 &1218654647
 TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797341828}
+  m_GameObject: {fileID: 1218654646}
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 3955515d388a26548906c11d09200dc4, type: 2}
   m_EnableTreeColliders: 1
---- !u!218 &797341830
+--- !u!218 &1218654648
 Terrain:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797341828}
+  m_GameObject: {fileID: 1218654646}
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 3955515d388a26548906c11d09200dc4, type: 2}
@@ -574,45 +599,20 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
---- !u!4 &797341831
+--- !u!4 &1218654649
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797341828}
+  m_GameObject: {fileID: 1218654646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.4, y: 0, z: -51}
+  m_LocalPosition: {x: -500, y: 0, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &940578006 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1433066628447366242, guid: 3d06ddf2787cfb845affdb8cb4f11b58,
-    type: 3}
-  m_PrefabInstance: {fileID: 6972323841662833537}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &940578007
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940578006}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 92314dff5f01a6b4786d5fb1c5032000, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1322301124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
     X","Mouse Y"]},"_position":{"x":480.0,"y":480.0},"$type":"FlowCanvas.Nodes.InputCustomAxisEvent","$id":"0"},{"_simplexNode":{},"_position":{"x":615.0,"y":255.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.FloatAdd,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"1"},{"targetVariable":{"_name":"xAxis","_targetVariableID":"a35c1908-08e0-4c18-be90-45d046647dc5"},"_position":{"x":780.0,"y":360.0},"$type":"FlowCanvas.Nodes.SetVariable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]","$id":"2"},{"_method":{"_baseInfo":"UnityEngine.Transform|set_localEulerAngles|System.Void","_paramsInfo":"UnityEngine.Vector3"},"_callable":true,"_position":{"x":1320.0,"y":360.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"3"},{"_simplexNode":{},"_position":{"x":990.0,"y":465.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.FloatMultiply,
-    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"4"},{"_constructor":{"_baseInfo":"UnityEngine.Vector3|$Constructor","_paramsInfo":"System.Single|System.Single"},"_position":{"x":1170.0,"y":465.0},"$type":"FlowCanvas.Nodes.ReflectedConstructorNodeWrapper","$id":"5"},{"_portCount":2,"_position":{"x":615.0,"y":480.0},"$type":"FlowCanvas.Nodes.Split","$id":"6"},{"targetVariable":{"_name":"yAxis","_targetVariableID":"82f4b544-0172-4c51-ba8f-c00c56f48447"},"_position":{"x":780.0,"y":615.0},"$type":"FlowCanvas.Nodes.SetVariable`1[[System.Single,
+    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"4"},{"_constructor":{"_baseInfo":"UnityEngine.Vector3|$Constructor","_paramsInfo":"System.Single|System.Single"},"_position":{"x":1170.0,"y":465.0},"$type":"FlowCanvas.Nodes.ReflectedConstructorNodeWrapper","$id":"5"},{"_portCount":2,"_position":{"x":634.0,"y":481.0},"$type":"FlowCanvas.Nodes.Split","$id":"6"},{"targetVariable":{"_name":"yAxis","_targetVariableID":"82f4b544-0172-4c51-ba8f-c00c56f48447"},"_position":{"x":780.0,"y":615.0},"$type":"FlowCanvas.Nodes.SetVariable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]","$id":"7"},{"_simplexNode":{},"_position":{"x":915.0,"y":780.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.FloatInvert,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"8"},{"_simplexNode":{},"_position":{"x":1095.0,"y":810.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.FloatMultiply,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"9"},{"_constructor":{"_baseInfo":"UnityEngine.Vector3|$Constructor","_paramsInfo":"System.Single|System.Single"},"_position":{"x":1230.0,"y":735.0},"$type":"FlowCanvas.Nodes.ReflectedConstructorNodeWrapper","$id":"10"},{"_method":{"_baseInfo":"UnityEngine.Transform|set_localEulerAngles|System.Void","_paramsInfo":"UnityEngine.Vector3"},"_callable":true,"_position":{"x":1425.0,"y":615.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"11"},{"_simplexNode":{},"_position":{"x":600.0,"y":675.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.FloatAdd,
@@ -1117,8 +1117,8 @@ MonoBehaviour:
     _version: 3.03
     _category: 
     _comments: 
-    _translation: {x: -4, y: -207}
-    _zoomFactor: 0.5226738
+    _translation: {x: -99, y: 52}
+    _zoomFactor: 0.36813757
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
@@ -1435,8 +1435,8 @@ MonoBehaviour:
     _version: 3.03
     _category: 
     _comments: 
-    _translation: {x: -1801, y: -213}
-    _zoomFactor: 1
+    _translation: {x: -1000.6477, y: -139.88484}
+    _zoomFactor: 0.85315174
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
