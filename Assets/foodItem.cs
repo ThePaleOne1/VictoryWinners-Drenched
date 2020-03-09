@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class foodItem : MonoBehaviour
 {
-    
+    //every food item should have this so we can change the amout of food any item replenishes
     public float foodAmount = 1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
