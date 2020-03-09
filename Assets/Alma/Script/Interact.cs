@@ -8,19 +8,21 @@ using System.Linq;
 public class Interact : MonoBehaviour
 {
 
+    public float displayDur = 3f;
 
-
-    string[] opening = new string[] { "Oh Look", "Oh dear", "Yummy", "Crap" };
-    string[] middle = new string[] { "a Corona Virus,", "a tin can of tuna,", "It's empy," };
-    string[] ending = new string[] {"so lucky to have me.", "great, I'm allergic to it. Thanks Devs.", "all thanks to Lachlan, " +
+    public string[] opening = new string[] { "Oh Look", "Oh dear", "Yummy", "Crap" };
+    public string[] middle = new string[] { "a Corona Virus,", "a tin can of tuna,", "It's empy," };
+    public string[] ending = new string[] {"so lucky to have me.", "great, I'm allergic to it. Thanks Devs.", "all thanks to Lachlan, " +
                                     "please stahp this!"};
 
     public bool suitcase;
     public GameObject toolTip;
     public GameObject itemDescribe;
+    public Text description;
 
     public string getRandomItem()
     {
+        
         int openIndex = Random.Range(0, opening.Length);
         int midIndex = Random.Range(0, middle.Length);
         int endIndex = Random.Range(0, ending.Length);
@@ -32,6 +34,8 @@ public class Interact : MonoBehaviour
 
         return itemWording;
     }
+
+
 
 
     private void Start()
@@ -47,13 +51,14 @@ public class Interact : MonoBehaviour
         {
             CoronaVirus();
         }
+
+        
     }
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Suitcase"))
         {
             toolTip.gameObject.SetActive(true);
-            print("I touch the box");
             suitcase = true;
 
         }
@@ -65,20 +70,22 @@ public class Interact : MonoBehaviour
         if (col.gameObject.CompareTag("Suitcase"))
         {
             toolTip.gameObject.SetActive(false);
-            print("I stop touching the box");
             suitcase = false;
             itemDescribe.gameObject.SetActive(false);
+            Destroy(GameObject.FindWithTag("Suitcase"));
         }
+
+        
 
     }
 
     public void CoronaVirus()
-    {
-
+    {           
+             
         itemDescribe.gameObject.SetActive(true);
-
-        Debug.Log(getRandomItem());
-
+        string itemDesc = getRandomItem();
+        description.text = "You open the case and said\r\n" + itemDesc;
+        Debug.Log(getRandomItem());        
     }
 
 }
