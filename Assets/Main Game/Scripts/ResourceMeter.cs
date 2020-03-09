@@ -14,12 +14,27 @@ public class ResourceMeter : MonoBehaviour
 
     private void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
         drainStatus();
+
+        //we can remove this later, but fucking hell 
+        //its annoying to playtest the game while the mouse moves offscreen
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+
     }
 
     void drainStatus()
