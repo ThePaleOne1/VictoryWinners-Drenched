@@ -8,12 +8,15 @@ public class ReasourceScript : MonoBehaviour
     float cooldown = 0.5f;
     bool canInteract = true;
 
+    
+
     [SerializeField]
     ResourceMeter resourceMeter;
     
     Animator anim;
     void Start()
     {
+        
         anim = GetComponent<Animator>();
     }
 
@@ -23,6 +26,7 @@ public class ReasourceScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canInteract) 
         {
             canInteract = false;
+            
             
             Invoke("CanInteract", cooldown);
             hitObj = col.gameObject;
@@ -46,6 +50,7 @@ public class ReasourceScript : MonoBehaviour
     void CanInteract()
     {
         canInteract = true;
+        
     }
 
     private void HitTree()
