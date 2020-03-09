@@ -482,7 +482,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"xSpeedRight":{"_value":50.0,"_name":"xSpeedRight","_id":"357888ff-76f2-41d1-a9cd-ab5776e01525","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"xSpeedLeft":{"_value":-50.0,"_name":"xSpeedLeft","_id":"b2250c5e-fe9a-49c2-ae64-2865aee67d08","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"zSpeedForward":{"_value":50.0,"_name":"zSpeedForward","_id":"f99e6f80-fe27-438e-a81f-e639964e1cf8","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"zSpeedBackwards":{"_value":-50.0,"_name":"zSpeedBackwards","_id":"b024b015-6f4d-4481-9383-9316b920425f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"zSpeedBackwards":{"_value":50.0,"_name":"zSpeedBackwards","_id":"b024b015-6f4d-4481-9383-9316b920425f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Gravity":{"_value":-100.0,"_name":"Gravity","_id":"75396b93-4c82-4bd4-83da-816934bb4643","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Movement":{"_name":"Movement","_id":"41969d03-f0f2-4803-bf23-d0cc314328ec","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"moveSpeed":{"_value":0.5,"_name":"moveSpeed","_id":"1c95cb7d-be86-4856-adf6-4f0e32896ff5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -495,8 +495,8 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"min":{"_value":-30.0,"_name":"min","_id":"cb4a27be-292e-4fba-8b7d-4ba774bd4fab","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"mouseSpeed":{"_value":1.0,"_name":"mouseSpeed","_id":"92d1c550-375c-43cc-a8d8-f366ee7d1eb8","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Camera":{"_value":3,"_name":"Camera","_id":"7ac9c4cf-1d75-449f-a6e9-e8d35a94f748","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"RunSpeed":{"_value":0.5,"_name":"RunSpeed","_id":"8756d7ab-fde8-4a67-ad8c-009ba2a3e77d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"WalkSpeed":{"_value":0.15,"_name":"WalkSpeed","_id":"d9c2aa03-816f-4682-8ff5-1f8b37028348","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"RunSpeed":{"_value":0.08,"_name":"RunSpeed","_id":"8756d7ab-fde8-4a67-ad8c-009ba2a3e77d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"WalkSpeed":{"_value":0.045,"_name":"WalkSpeed","_id":"d9c2aa03-816f-4682-8ff5-1f8b37028348","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
@@ -507,12 +507,12 @@ MonoBehaviour:
     _version: 3.03
     _category: 
     _comments: 
-    _translation: {x: -249, y: 274}
-    _zoomFactor: 0.57847226
+    _translation: {x: -809, y: -300}
+    _zoomFactor: 0.8385644
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
-  _lockBoundGraphPrefabOverrides: 1
+  _lockBoundGraphPrefabOverrides: 0
   _preInitializeSubGraphs: 0
   _updateMode: 0
   _graph: {fileID: 0}
