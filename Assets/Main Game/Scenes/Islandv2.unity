@@ -4409,7 +4409,7 @@ PrefabInstance:
     - target: {fileID: 33179720221144385, guid: b1373458c5edc574f8aefeefcb4d1c0c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 478.7
+      value: 468.77
       objectReference: {fileID: 0}
     - target: {fileID: 33179720221144385, guid: b1373458c5edc574f8aefeefcb4d1c0c,
         type: 3}
@@ -4604,7 +4604,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a512905b43f0e14f9c07ed8428ad35c, type: 2}
+      objectReference: {fileID: 2100000, guid: 1ffb932430ffd5345a577233627c0b2e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1373458c5edc574f8aefeefcb4d1c0c, type: 3}
 --- !u!1001 &5495168011905706127
@@ -4903,14 +4903,22 @@ MonoBehaviour:
   - Oh dear
   - Yummy
   - Crap
+  - Uuuuuhhhh
+  - Wowee
   middle:
   - a Corona Virus,
   - a tin can of tuna,
   - It's empy,
+  - a picture of neo...
+  - neo's diary!
+  - a litteral plank of wood?
   ending:
   - so lucky to have me.
   - great, I'm allergic to it. Thanks Devs.
   - all thanks to Lachlan, please stahp this!
+  - thanks! I hate it!
+  - kms...
+  - why?
   HealthWoodFood: []
   SanityFiberFlint: []
   rm: {fileID: 0}

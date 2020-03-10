@@ -38,7 +38,7 @@ public class Interact : MonoBehaviour
 
         string itemWording =
             opening[openIndex] + ", " +
-            middle[midIndex] + " it's " +
+            middle[midIndex] + " " +
             ending[endIndex];
 
         return itemWording;
@@ -100,7 +100,8 @@ public class Interact : MonoBehaviour
              
         itemDescribe.gameObject.SetActive(true);
         string itemDesc = getRandomItem();
-        description.text = "You open the case and said\r\n" + itemDesc;
+        //description.text = "You open the case and said\r\n" + itemDesc;
+        description.text = itemDesc;
         Debug.Log(itemDesc);
 
         rm.Health += HealthWoodFood[midIndex].x;
