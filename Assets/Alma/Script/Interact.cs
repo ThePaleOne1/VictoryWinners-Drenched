@@ -15,20 +15,29 @@ public class Interact : MonoBehaviour
     public string[] ending = new string[] {"so lucky to have me.", "great, I'm allergic to it. Thanks Devs.", "all thanks to Lachlan, " +
                                     "please stahp this!"};
 
+    public Vector3[] HealthWoodFood;
+    public Vector3[] SanityFiberFlint;
+    public ResourceMeter rm;
+
+
     public bool suitcase;
     public GameObject toolTip;
     public GameObject itemDescribe;
     public Text description;
 
+    int openIndex;
+    int midIndex;
+    int endIndex;
+
     public string getRandomItem()
     {
         
-        int openIndex = Random.Range(0, opening.Length);
-        int midIndex = Random.Range(0, middle.Length);
-        int endIndex = Random.Range(0, ending.Length);
+        openIndex = Random.Range(0, opening.Length);
+        midIndex = Random.Range(0, middle.Length);
+        endIndex = Random.Range(0, ending.Length);
 
         string itemWording =
-            opening[openIndex] + " " +
+            opening[openIndex] + ", " +
             middle[midIndex] + " it's " +
             ending[endIndex];
 
@@ -43,6 +52,10 @@ public class Interact : MonoBehaviour
         toolTip.gameObject.SetActive(false);
         itemDescribe.gameObject.SetActive(false);
 
+        //effects.Add(new Vector3(health, food, wood), new Vector3(sanity, 0, 0));
+
+        
+
     }
 
     private void Update()
@@ -50,6 +63,9 @@ public class Interact : MonoBehaviour
         if (suitcase && Input.GetKeyDown(KeyCode.E))
         {
             CoronaVirus();
+
+           
+
         }
 
         
@@ -85,7 +101,14 @@ public class Interact : MonoBehaviour
         itemDescribe.gameObject.SetActive(true);
         string itemDesc = getRandomItem();
         description.text = "You open the case and said\r\n" + itemDesc;
-        Debug.Log(getRandomItem());        
+        Debug.Log(itemDesc);
+
+        rm.Health += HealthWoodFood[midIndex].x;
+        rm.wood += HealthWoodFood[midIndex].y;
+        rm.food += HealthWoodFood[midIndex].z;
+        rm.sanity += SanityFiberFlint[midIndex].x;
+        rm.fiber += SanityFiberFlint[midIndex].y;
+        rm.flint += SanityFiberFlint[midIndex].z;
     }
 
 }
