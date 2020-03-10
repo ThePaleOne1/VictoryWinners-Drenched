@@ -11,7 +11,7 @@ public class StatusScript : MonoBehaviour
     public float maxSanity = 100;
 
     private float currentResource;
-    public float currentHealth;
+    //public float currentHealth;
     private float currentFood;
     private float currentSanity;
 
@@ -69,7 +69,7 @@ public class StatusScript : MonoBehaviour
     //set everything to tha H U and DDDDDDDDDDDDDDDDD
     public void setStatus()
     {
-        currentHealth = maxHealth;
+        StatusStuff.Health = maxHealth;
         currentFood = StatusStuff.food;
         currentResource = StatusStuff.wood;
         currentSanity = StatusStuff.sanity;
@@ -86,7 +86,7 @@ public class StatusScript : MonoBehaviour
         sanitySlider.maxValue = maxSanity;
         sanitySlider.value = currentSanity;
 
-        healthNumber.text = "" + currentHealth.ToString("f0");
+        healthNumber.text = "" + StatusStuff.Health.ToString("f0");
         foodNumber.text = "" + currentFood.ToString("f0");
         resourceNumber.text = "" + currentResource.ToString("f0");
         sanityNumber.text = "" + currentSanity.ToString("f0");
@@ -96,9 +96,9 @@ public class StatusScript : MonoBehaviour
     {
         if (currentFood <= 0)
         {
-            if (currentHealth > 5)
+            if (StatusStuff.Health > 5)
             {
-                currentHealth -= drainHealth * Time.deltaTime;
+                StatusStuff.Health -= drainHealth * Time.deltaTime;
             }
         }
     }
@@ -131,8 +131,8 @@ public class StatusScript : MonoBehaviour
     //updates any changes to statuses
     public void updateStatus()
     {
-        healthSlider.value = currentHealth;
-        healthNumber.text = "" + currentHealth.ToString("f0");
+        healthSlider.value = StatusStuff.Health;
+        healthNumber.text = "" + StatusStuff.Health.ToString("f0");
 
         currentFood = StatusStuff.food;
         foodSlider.value = currentFood;

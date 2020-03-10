@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ResourceMeter : MonoBehaviour
 {
+    public float Health;
     public float wood;
     public float food;
     public float sanity;
+    public float fiber;
+    public float flint;
 
     public float drainFood;
 
