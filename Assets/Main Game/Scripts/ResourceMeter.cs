@@ -11,6 +11,9 @@ public class ResourceMeter : MonoBehaviour
     public float fiber;
     public float flint;
 
+
+
+
     public float drainFood;
 
     [SerializeField] StatusScript statusHUD;

@@ -36,6 +36,7 @@ public class ReasourceScript : MonoBehaviour
             {
                 anim.SetTrigger("Hit");
                 Invoke("HitTree", cooldown);
+                col.GetComponent<Tree>().isHit = true;
             }
 
             if (col.tag == "Food")

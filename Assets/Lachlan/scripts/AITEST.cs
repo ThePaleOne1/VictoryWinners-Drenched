@@ -9,7 +9,8 @@ public class AITEST : MonoBehaviour
     float clock;
 
     [SerializeField]
-    float wandDistance;
+    float 
+        wandDistance;
     // Start is called before the first frame update
 
     [SerializeField]
