@@ -26,9 +26,13 @@ public class StatusScript : MonoBehaviour
     public Slider flintSlider;
     public Slider sanitySlider;
 
-    public Text healthText;
-    public Text foodText;
-    public Text sanityText;
+    //public Text healthText;
+    //public Text foodText;
+    //public Text sanityText;
+
+    public Image healthIcon;
+    public Image foodIcon;
+    public Image sanityIcon;
 
     public Text healthNumber;   
     public Text foodNumber;
@@ -128,10 +132,10 @@ public class StatusScript : MonoBehaviour
     public void showStatus()
     {
         healthNumber.gameObject.SetActive(true);
-        healthText.gameObject.SetActive(false);
+        healthIcon.gameObject.SetActive(false);
 
         foodNumber.gameObject.SetActive(true);
-        foodText.gameObject.SetActive(false);
+        foodIcon.gameObject.SetActive(false);
 
         woodNumber.gameObject.SetActive(true);
 
@@ -140,17 +144,17 @@ public class StatusScript : MonoBehaviour
         flintNumber.gameObject.SetActive(true);
 
         sanityNumber.gameObject.SetActive(true);
-        sanityText.gameObject.SetActive(false);
+        sanityIcon.gameObject.SetActive(false);
     }
 
     //hides numbers on tab release
     public void hideStatus()
     {
         healthNumber.gameObject.SetActive(false);
-        healthText.gameObject.SetActive(true);
+        healthIcon.gameObject.SetActive(true);
 
         foodNumber.gameObject.SetActive(false);
-        foodText.gameObject.SetActive(true);
+        foodIcon.gameObject.SetActive(true);
 
         woodNumber.gameObject.SetActive(false);
 
@@ -159,7 +163,7 @@ public class StatusScript : MonoBehaviour
         flintNumber.gameObject.SetActive(false);
 
         sanityNumber.gameObject.SetActive(false);
-        sanityText.gameObject.SetActive(true);
+        sanityIcon.gameObject.SetActive(true);
     }
 
     //updates any changes to statuses
