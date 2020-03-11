@@ -205,6 +205,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 662590295696358567, guid: d01bccc77eb1b58418061625b8fbd509,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 662590296231152356, guid: d01bccc77eb1b58418061625b8fbd509,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 662590297179763044, guid: d01bccc77eb1b58418061625b8fbd509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 662590297179763044, guid: d01bccc77eb1b58418061625b8fbd509,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20
+      value: 19.7
       objectReference: {fileID: 0}
     - target: {fileID: 662590297179763044, guid: d01bccc77eb1b58418061625b8fbd509,
         type: 3}
@@ -264,6 +274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 662590297641380362, guid: d01bccc77eb1b58418061625b8fbd509,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01bccc77eb1b58418061625b8fbd509, type: 3}
@@ -2295,7 +2310,7 @@ MonoBehaviour:
   - a tin can of tuna,
   - It's empy,
   - a picture of neo...
-  - neo's diary!
+  - Seaweed
   - a litteral plank of wood?
   ending:
   - so lucky to have me.
@@ -2304,9 +2319,21 @@ MonoBehaviour:
   - thanks! I hate it!
   - kms...
   - why?
-  HealthWoodFood: []
-  SanityFiberFlint: []
-  rm: {fileID: 0}
+  HealthWoodFood:
+  - {x: -50, y: 0, z: -10}
+  - {x: 10, y: 0, z: 25}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 10, z: 0}
+  SanityFiberFlint:
+  - {x: -25, y: 0, z: 0}
+  - {x: 10, y: 0, z: 0}
+  - {x: -10, y: 0, z: 0}
+  - {x: 50, y: 0, z: 0}
+  - {x: 0, y: 25, z: 0}
+  - {x: 0, y: 0, z: 0}
+  rm: {fileID: 602435988}
   suitcase: 0
   toolTip: {fileID: 1265175010}
   itemDescribe: {fileID: 1435893978}
