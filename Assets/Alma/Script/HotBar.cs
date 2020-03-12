@@ -26,7 +26,7 @@ public class HotBar : MonoBehaviour
         if(Input.mouseScrollDelta.y >= 1)
         {
             scrollPosition++;
-            if(scrollPosition >= 10)
+            if(scrollPosition >= 7)
             {
                 scrollPosition = 1;
             } 
@@ -37,7 +37,7 @@ public class HotBar : MonoBehaviour
             scrollPosition--;
             if(scrollPosition <= 0)
             {
-                scrollPosition = 9;
+                scrollPosition = 6;
             }
         }
         Selected();

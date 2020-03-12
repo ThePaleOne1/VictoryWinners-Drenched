@@ -9,9 +9,9 @@ public class mCursor : MonoBehaviour
     void Start()
     {
         //Set Cursor to not be visible
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
-        
+
     }
 
     void Update()
