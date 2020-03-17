@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using UnityEngine.UI;
-using System.Linq;
+
+
+
 
 public class Interact : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class Interact : MonoBehaviour
     public bool suitcase;
     public GameObject toolTip;
     public GameObject itemDescribe;
+    public GameObject inventoryBag;
+    public GameObject flowcanvas;
     public Text description;
 
     int openIndex;
@@ -51,6 +55,7 @@ public class Interact : MonoBehaviour
     {
         toolTip.gameObject.SetActive(false);
         itemDescribe.gameObject.SetActive(false);
+        inventoryBag.gameObject.SetActive(false);
 
         //effects.Add(new Vector3(health, food, wood), new Vector3(sanity, 0, 0));
 
@@ -62,13 +67,39 @@ public class Interact : MonoBehaviour
     {
         if (suitcase && Input.GetKeyDown(KeyCode.E))
         {
-            CoronaVirus();
-
-           
-
+            CoronaVirus();                    
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(inventoryBag.gameObject.activeInHierarchy == false)
+            {
+                
+                GameObject.FindObjectOfType<CharacterController>().enabled = false;
+                inventoryBag.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+                ShowMouseCursor();
+            }
+            else if(inventoryBag.gameObject.activeInHierarchy == true)
+            {
+                
+                GameObject.FindObjectOfType<CharacterController>().enabled = true;
+                inventoryBag.gameObject.SetActive(false);
+                Time.timeScale = 1f;
+                HideMouseCursor();                
+            }
+        }
+    }
+
+    public void ShowMouseCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    public void HideMouseCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     private void OnTriggerEnter(Collider col)
     {
