@@ -15,6 +15,7 @@ public class ResourceMeter : MonoBehaviour
 
 
     public float drainFood;
+    public float drainHealth;
 
     [SerializeField] StatusScript statusHUD;
 
@@ -33,6 +34,14 @@ public class ResourceMeter : MonoBehaviour
         if (food > 0)
         {
             food -= drainFood * Time.deltaTime;
+        }
+
+        if(food <= 0)
+        {
+            if(Health >= 10)
+            {
+                Health -= drainHealth * Time.deltaTime;
+            } 
         }
     }
 }

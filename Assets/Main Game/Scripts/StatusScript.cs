@@ -17,8 +17,6 @@ public class StatusScript : MonoBehaviour
     private float currentFood;
     private float currentSanity;
 
-    public float drainHealth;
-
     public Slider healthSlider;
     public Slider foodSlider;
     public Slider woodSlider;
@@ -75,8 +73,7 @@ public class StatusScript : MonoBehaviour
         {
             hideStatus();
         }
-
-        drainStatus();
+        
         updateStatus();
     }
 
@@ -115,18 +112,6 @@ public class StatusScript : MonoBehaviour
         flintNumber.text = "" + currentFlint.ToString("f0");
         sanityNumber.text = "" + currentSanity.ToString("f0");
     }
-
-    public void drainStatus()
-    {
-        if (currentFood <= 0)
-        {
-            if (StatusStuff.Health > 5)
-            {
-                StatusStuff.Health -= drainHealth * Time.deltaTime;
-            }
-        }
-    }
-
    
     //shows numbers on tab hold
     public void showStatus()
