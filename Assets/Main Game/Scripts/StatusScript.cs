@@ -31,6 +31,9 @@ public class StatusScript : MonoBehaviour
     public Image healthIcon;
     public Image foodIcon;
     public Image sanityIcon;
+    public Image woodIcon;
+    public Image fiberIcon;
+    public Image flintIcon;
 
     public Text healthNumber;   
     public Text foodNumber;
@@ -123,10 +126,13 @@ public class StatusScript : MonoBehaviour
         foodIcon.gameObject.SetActive(false);
 
         woodNumber.gameObject.SetActive(true);
+        woodIcon.gameObject.SetActive(false);
 
         fiberNumber.gameObject.SetActive(true);
+        fiberIcon.gameObject.SetActive(false);
 
         flintNumber.gameObject.SetActive(true);
+        flintIcon.gameObject.SetActive(false);
 
         sanityNumber.gameObject.SetActive(true);
         sanityIcon.gameObject.SetActive(false);
@@ -142,10 +148,13 @@ public class StatusScript : MonoBehaviour
         foodIcon.gameObject.SetActive(true);
 
         woodNumber.gameObject.SetActive(false);
+        woodIcon.gameObject.SetActive(true);
 
         fiberNumber.gameObject.SetActive(false);
+        fiberIcon.gameObject.SetActive(true);
 
         flintNumber.gameObject.SetActive(false);
+        flintIcon.gameObject.SetActive(true);
 
         sanityNumber.gameObject.SetActive(false);
         sanityIcon.gameObject.SetActive(true);
