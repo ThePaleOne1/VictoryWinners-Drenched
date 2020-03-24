@@ -40,12 +40,12 @@ public class SunGoku : MonoBehaviour
 
         if (dayTime)
         {
-            Debug.Log("IT'S DAY");
+            //Debug.Log("IT'S DAY");
         }
 
         if (!dayTime)
         {
-            Debug.Log("IT'S NIGHT");
+            //Debug.Log("IT'S NIGHT");
 
             statusStuff.sanity -= drainSanity * Time.deltaTime;
         }
