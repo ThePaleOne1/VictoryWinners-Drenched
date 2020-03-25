@@ -11,9 +11,6 @@ public class ResourceMeter : MonoBehaviour
     public float fiber;
     public float flint;
 
-
-
-
     public float drainFood;
     public float drainHealth;
 
@@ -42,6 +39,14 @@ public class ResourceMeter : MonoBehaviour
             {
                 Health -= drainHealth * Time.deltaTime;
             } 
+        }
+    }
+
+    public void PlayerDamage()
+    {
+        if (Health > 0)
+        {
+            Health -= 10 * Time.deltaTime;
         }
     }
 }
