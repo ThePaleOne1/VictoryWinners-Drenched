@@ -6,7 +6,7 @@ using UnityEngine;
 public class OceanScript : MonoBehaviour
 {
     //Public Properties
-    public int Dimension = 1000;
+    public int Dimension = 100;
     public float UVScale = 2f;
     public Octave[] Octaves;
 
