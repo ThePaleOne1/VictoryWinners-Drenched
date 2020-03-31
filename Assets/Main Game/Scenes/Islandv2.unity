@@ -2523,7 +2523,7 @@ MonoBehaviour:
   flint: 0
   drainFood: 0.25
   drainHealth: 0.5
-  statusHUD: {fileID: 0}
+  statusHUD: {fileID: 1307227928}
 --- !u!4 &602435989
 Transform:
   m_ObjectHideFlags: 0
@@ -4580,6 +4580,18 @@ Transform:
   m_Father: {fileID: 71443165}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 124.30701, z: 90.00001}
+--- !u!114 &1307227928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3060682266995183611, guid: 7c75478d5b23d794fb11a0802057449e,
+    type: 3}
+  m_PrefabInstance: {fileID: 161941669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f16726594dc654598f4eed35e86650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1353331608
 GameObject:
   m_ObjectHideFlags: 0
