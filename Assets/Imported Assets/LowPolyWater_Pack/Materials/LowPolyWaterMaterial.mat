@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LowPolyWaterMaterial
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: -6465566751694194690, guid: ce087518e2c4645418b3937dd4d72edd,
+    type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -129,6 +129,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_3D68043B: 9
+    - Vector1_43D0C606: 1
+    - Vector1_7EB14AD2: 4
     - _Ambient: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -175,6 +178,8 @@ Material:
     - _ZWrite: 0
     - _isInnerAlphaBlendOrColor: 0
     m_Colors:
+    - Color_47CA28B8: {r: 0.3686275, g: 0.4862745, b: 0.4862745, a: 0}
+    - Color_D33663F9: {r: 0.1630028, g: 0.8867835, b: 0.9339623, a: 0}
     - WaveSpeed: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
     - _AnimationDirection: {r: 0, g: 0, b: 0, a: 0}
     - _AnimationTiling: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}

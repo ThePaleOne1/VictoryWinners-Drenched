@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3548051358386248356
+--- !u!1 &5039010637660413611
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3548051358386248361}
-  - component: {fileID: 3548051358386248362}
-  - component: {fileID: 3548051358386248363}
+  - component: {fileID: 5039010637660413609}
+  - component: {fileID: 5039010637660413608}
+  - component: {fileID: 5039010637660413614}
   m_Layer: 0
-  m_Name: Ocean (1)
+  m_Name: Ocean
   m_TagString: Untagged
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3548051358386248361
+--- !u!4 &5039010637660413609
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3548051358386248356}
+  m_GameObject: {fileID: 5039010637660413611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 264, y: 14, z: 289.7}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3548051358386248362
+--- !u!114 &5039010637660413608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3548051358386248356}
+  m_GameObject: {fileID: 5039010637660413611}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e731d2278c50bc84383ad7f16b4aff83, type: 3}
@@ -47,21 +47,17 @@ MonoBehaviour:
   Dimension: 100
   UVScale: 2
   Octaves:
-  - speed: {x: 1, y: 1}
-    scale: {x: 5, y: 5}
-    height: 0.5
-    alternate: 0
-  - speed: {x: 1, y: 1}
-    scale: {x: 2, y: 2}
-    height: 0.5
+  - speed: {x: 2, y: 2}
+    scale: {x: 50, y: 50}
+    height: 1
     alternate: 1
---- !u!23 &3548051358386248363
+--- !u!23 &5039010637660413614
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3548051358386248356}
+  m_GameObject: {fileID: 5039010637660413611}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -73,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5cdc29e382d9e3f4ca10a203114f63d5, type: 2}
+  - {fileID: 2100000, guid: 282287b3b1aa9e14486a5f3be88dae6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
