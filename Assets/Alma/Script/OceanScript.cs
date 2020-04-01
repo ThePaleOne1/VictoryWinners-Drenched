@@ -14,9 +14,14 @@ public class OceanScript : MonoBehaviour
     protected MeshFilter MeshFilter;
     protected Mesh Mesh;
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
+
         //Mesh Setup
         Mesh = new Mesh();
         Mesh.name = gameObject.name;
@@ -133,6 +138,7 @@ public class OceanScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         var verts = Mesh.vertices;
         for (int x = 0; x <= Dimension; x++)
         {
