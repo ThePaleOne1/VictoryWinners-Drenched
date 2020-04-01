@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using ParadoxNotion.Design;
 
 namespace FlowCanvas.Nodes
@@ -11,11 +10,9 @@ namespace FlowCanvas.Nodes
     public class ORMerge : FlowControlNode
     {
 
-        [SerializeField]
-        [ExposeField]
+        [SerializeField, ExposeField]
+        [MinValue(2), DelayedField]
         [GatherPortsCallback]
-        [MinValue(2)]
-        [DelayedField]
         private int _portCount = 2;
 
         private FlowOutput fOut;

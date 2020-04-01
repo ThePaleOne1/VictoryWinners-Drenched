@@ -230,6 +230,9 @@ namespace ParadoxNotion.Serialization.FullSerializer
             AddConverter(new LayerMask_DirectConverter());
             AddConverter(new RectOffset_DirectConverter());
             AddConverter(new Rect_DirectConverter());
+
+            AddConverter(new Vector2Int_DirectConverter());
+            AddConverter(new Vector3Int_DirectConverter());
         }
 
         ///----------------------------------------------------------------------------------------------

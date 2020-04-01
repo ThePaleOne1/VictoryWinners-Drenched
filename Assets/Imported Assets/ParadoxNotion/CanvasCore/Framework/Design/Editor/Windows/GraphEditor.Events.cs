@@ -147,7 +147,7 @@ namespace NodeCanvas.Editor
             //No panel is obscuring
             if ( GraphEditorUtility.allowClick ) {
 
-                if ( e.type == EventType.MouseDown && e.clickCount == 2 ) {
+                if ( e.type == EventType.MouseDown && e.clickCount == 2 && e.button == 0 ) {
                     current.maximized = !current.maximized;
                     e.Use();
                 }

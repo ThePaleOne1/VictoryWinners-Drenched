@@ -19,8 +19,12 @@ namespace NodeCanvas.Framework
     ///Class for Parameter Variables that allow binding to a Blackboard variable or specifying a value directly.
     [ParadoxNotion.Design.SpoofAOT]
     [Serializable, fsAutoInstance, fsUninitialized]
-    abstract public class BBParameter : ISerializationCollectable
+    abstract public class BBParameter : ISerializationCollectable, ISerializationCallbackReceiver
     {
+
+        //reset value to default when using bb
+        void ISerializationCallbackReceiver.OnBeforeSerialize() { if ( useBlackboard ) { SetDefaultValue(); } }
+        void ISerializationCallbackReceiver.OnAfterDeserialize() { }
 
         //null means use local _value, empty means [NONE], anything else means use bb variable.
         [SerializeField] private string _name;
@@ -198,6 +202,8 @@ namespace NodeCanvas.Framework
 
         ///The type of the value that this BBParameter holds
         abstract public Type varType { get; }
+        ///Set the default value
+        abstract protected void SetDefaultValue();
         ///Bind the BBParameter to target. Null unbinds.
         abstract protected void Bind(Variable data);
         ///Same as .value. Used for binding.
@@ -286,7 +292,7 @@ namespace NodeCanvas.Framework
                     return varRef != null ? text : string.Format("<color=#DB2B2B>{0}</color>", text);
                 }
 #else
-				return text;
+                return text;
 #endif
             }
             if ( isNull ) {
@@ -376,12 +382,14 @@ namespace NodeCanvas.Framework
         ///Same as .value. Used for binding.
         public void SetValue(T value) { this.value = value; }
 
+        protected override void SetDefaultValue() { _value = default(T); }
+
         ///Binds this BBParameter to a Variable. Null unbinds
         protected override void Bind(Variable variable) {
+            _value = default(T);
             if ( variable == null ) {
                 getter = null;
                 setter = null;
-                _value = default(T);
                 return;
             }
 

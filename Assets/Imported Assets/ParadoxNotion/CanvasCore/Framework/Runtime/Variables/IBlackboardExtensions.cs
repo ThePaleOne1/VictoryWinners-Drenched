@@ -103,8 +103,8 @@ namespace NodeCanvas.Framework
         ///Gets the variable data value from the blackboard with provided name and type T.
         public static T GetVariableValue<T>(this IBlackboard blackboard, string varName) {
 
-            Variable variable;
-            if ( !blackboard.variables.TryGetValue(varName, out variable) ) {
+            var variable = GetVariable<T>(blackboard, varName);
+            if ( variable == null ) {
                 Logger.LogError(string.Format("No Variable of name '{0}' and type '{1}' exists on Blackboard '{2}'. Returning default T...", varName, typeof(T).FriendlyName(), blackboard), LogTag.BLACKBOARD, blackboard);
                 return default(T);
             }
