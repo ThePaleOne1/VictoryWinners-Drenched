@@ -14,15 +14,15 @@ namespace NodeCanvas.Editor
 {
 
     //To let the editor interop with other things
-    internal static class GraphEditorUtility
+    public static class GraphEditorUtility
     {
 
-        internal static bool allowClick = true;
-        internal static Vector2 realMousePosition { get; set; }
-        internal static int lastNodeID { get; private set; }
-        internal static int lastConnectionID { get; private set; }
-        internal static event System.Action PostGUI;
-        internal static event System.Action<IGraphElement> onActiveElementChanged;
+        public static bool allowClick = true;
+        public static Vector2 realMousePosition { get; set; }
+        public static int lastNodeID { get; private set; }
+        public static int lastConnectionID { get; private set; }
+        public static event System.Action PostGUI;
+        public static event System.Action<IGraphElement> onActiveElementChanged;
         private static WeakReference<IGraphElement> _activeElement = new WeakReference<IGraphElement>(null);
         private static WeakReferenceList<IGraphElement> _activeElements = new WeakReferenceList<IGraphElement>();
 
@@ -39,7 +39,7 @@ namespace NodeCanvas.Editor
         ///----------------------------------------------------------------------------------------------
 
         ///Selected Node or Connection
-        internal static IGraphElement activeElement {
+        public static IGraphElement activeElement {
             get
             {
                 if ( activeElements.Count > 1 ) { return null; }
@@ -74,7 +74,7 @@ namespace NodeCanvas.Editor
         }
 
         ///multiple selected Node or Connection
-        internal static List<IGraphElement> activeElements {
+        public static List<IGraphElement> activeElements {
             get { return _activeElements.ToReferenceList(); }
             set
             {
@@ -88,19 +88,19 @@ namespace NodeCanvas.Editor
         }
 
         ///Selected Node if any
-        internal static Node activeNode {
+        public static Node activeNode {
             get { return activeElement as Node; }
         }
 
         ///Selected Connection if any
-        internal static Connection activeConnection {
+        public static Connection activeConnection {
             get { return activeElement as Connection; }
         }
 
         ///----------------------------------------------------------------------------------------------
 
         //Find nodes of type (T) having the [DropReferenceType] attribute pointing to target unity object type
-        internal static IEnumerable<System.Type> GetDropedReferenceNodeTypes<T>(UnityEngine.Object obj) where T : IGraphElement {
+        public static IEnumerable<System.Type> GetDropedReferenceNodeTypes<T>(UnityEngine.Object obj) where T : IGraphElement {
             var targetType = obj.GetType();
             foreach ( var type in ReflectionTools.GetImplementationsOf(typeof(T)) ) {
                 var att = type.RTGetAttribute<DropReferenceType>(true);
@@ -113,19 +113,19 @@ namespace NodeCanvas.Editor
         ///----------------------------------------------------------------------------------------------
 
         ///Returns the extension at which the graph will be saved with if exported to JSON
-        internal static string GetGraphJSONFileExtension(this Graph graph) {
+        public static string GetGraphJSONFileExtension(this Graph graph) {
             return graph.GetType().Name.GetCapitals();
         }
 
         ///Returns the selected nodes if any or all graph nodes
-        internal static IEnumerable<Node> GetSelectedOrAll(this Graph graph) {
+        public static IEnumerable<Node> GetSelectedOrAll(this Graph graph) {
             if ( activeNode != null ) { return new Node[] { activeNode }; }
             if ( activeElements.Count > 0 ) { return activeElements.OfType<Node>(); }
             return graph.allNodes;
         }
 
         ///Scans the graph for structs and append them in preferred types. Prompts user for confirm.
-        internal static void ScanForStructTypesAndAppendThem(Graph graph) {
+        public static void ScanForStructTypesAndAppendThem(Graph graph) {
 
             var serializedTypes = new List<Type>();
             JSONSerializer.SerializeAndExecuteNoCycles(typeof(NodeCanvas.Framework.Internal.GraphSource), graph.GetGraphSource(), (o, d) =>
@@ -155,7 +155,7 @@ namespace NodeCanvas.Editor
         }
 
         ///Make a deep copy of provided graph asset along with it's sub-graphs.
-        internal static Graph DeepCopy(Graph root) {
+        public static Graph DeepCopy(Graph root) {
             if ( root == null ) {
                 return null;
             }

@@ -100,7 +100,7 @@ namespace NodeCanvas.Framework
                 nestedMetaGraph = null;
 
                 //collect garbage
-                System.GC.Collect();
+                // System.GC.Collect();
 
                 return true;
             }
@@ -381,8 +381,8 @@ namespace NodeCanvas.Framework
         public IBlackboard blackboard => localBlackboard;
 
         ///The blackboard which is parented to the graph's local blackboard
-        ///Should be the same as '.blackboard.parent'
-        private IBlackboard parentBlackboard { get; set; }
+        ///Should be the same as '.blackboard.parent' and usually refers to the GraphOwner (agent) .blackboard
+        public IBlackboard parentBlackboard { get; private set; }
 
         ///The UnityObject of the ITaskSystem. In this case the graph itself
         UnityEngine.Object ITaskSystem.contextObject => this;

@@ -102,10 +102,10 @@ namespace NodeCanvas.Framework.Internal
 
             var argTypes = new Type[parameters.Length + 1];
             argTypes[0] = method.ReturnType;
-            for ( var i = 1; i < parameters.Length; i++ ) {
+            for ( var i = 0; i < parameters.Length; i++ ) {
                 var parameter = parameters[i];
                 var pType = parameter.ParameterType.IsByRef ? parameter.ParameterType.GetElementType() : parameter.ParameterType;
-                argTypes[i] = pType;
+                argTypes[i + 1] = pType;
             }
 
             var o = (ReflectedFunctionWrapper)Activator.CreateInstance(type.RTMakeGenericType(argTypes.ToArray()));

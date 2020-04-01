@@ -13,7 +13,12 @@ namespace NodeCanvas.Editor
     {
 
         [InitializeOnLoadMethod]
-        static void Init() {
+        static void PreInit() {
+            EditorApplication.delayCall -= Init;
+            EditorApplication.delayCall += Init;
+        }
+
+        static void Init(){
 #if UNITY_2019_3_OR_NEWER
             ParadoxNotion.Design.AssetTracker.onAssetsImported -= OnAssetsImported;
             ParadoxNotion.Design.AssetTracker.onAssetsImported += OnAssetsImported;

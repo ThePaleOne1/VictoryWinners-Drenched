@@ -31,7 +31,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             this.ReadOnly = Field.RTIsDefined<fsReadOnlyAttribute>(true);
             this.WriteOnly = Field.RTIsDefined<fsWriteOnlyAttribute>(true);
             var autoInstanceAtt = StorageType.RTGetAttribute<fsAutoInstance>(true);
-            this.AutoInstance = autoInstanceAtt != null && autoInstanceAtt.makeInstance;
+            this.AutoInstance = autoInstanceAtt != null && autoInstanceAtt.makeInstance && !StorageType.IsAbstract;
             this.AsReference = Field.RTIsDefined<fsSerializeAsReference>(true);
         }
 

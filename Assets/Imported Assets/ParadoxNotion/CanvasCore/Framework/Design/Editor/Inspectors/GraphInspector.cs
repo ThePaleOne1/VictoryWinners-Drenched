@@ -19,6 +19,8 @@ namespace NodeCanvas.Editor
         public override void OnInspectorGUI() {
             UndoUtility.CheckUndo(this, "Graph Inspector");
             ShowBasicGUI();
+            EditorUtils.Separator();
+            ShowBlackboardGUI();
             EditorUtils.EndOfInspector();
             UndoUtility.CheckDirty(this);
         }
@@ -37,6 +39,10 @@ namespace NodeCanvas.Editor
                 GraphEditor.OpenWindow(graph);
             }
             GUI.backgroundColor = Color.white;
+        }
+
+        public void ShowBlackboardGUI() {
+            BlackboardEditor.ShowVariables(graph.blackboard, graph);
         }
     }
 }
