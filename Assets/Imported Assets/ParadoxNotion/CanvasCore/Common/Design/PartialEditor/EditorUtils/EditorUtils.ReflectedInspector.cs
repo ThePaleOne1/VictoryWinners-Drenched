@@ -241,8 +241,16 @@ namespace ParadoxNotion.Design
                 return EditorGUILayout.Vector2Field(content, (Vector2)value, options);
             }
 
+            if ( t == typeof(Vector2Int) ) {
+                return EditorGUILayout.Vector2IntField(content, (Vector2Int)value, options);
+            }
+
             if ( t == typeof(Vector3) ) {
                 return EditorGUILayout.Vector3Field(content, (Vector3)value, options);
+            }
+
+            if ( t == typeof(Vector3Int) ) {
+                return EditorGUILayout.Vector3IntField(content, (Vector3Int)value, options);
             }
 
             if ( t == typeof(Vector4) ) {
@@ -258,6 +266,10 @@ namespace ParadoxNotion.Design
 
             if ( t == typeof(Color) ) {
                 return EditorGUILayout.ColorField(content, (Color)value, options);
+            }
+
+            if ( t == typeof(Gradient) ) {
+                return EditorGUILayout.GradientField(content, (Gradient)value, options);
             }
 
             if ( t == typeof(Rect) ) {

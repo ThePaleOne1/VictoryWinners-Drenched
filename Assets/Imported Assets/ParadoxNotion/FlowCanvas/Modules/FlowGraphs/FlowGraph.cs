@@ -41,6 +41,7 @@ namespace FlowCanvas
 
         ///Calls and returns a value of a custom function in the flowgraph
         public object CallFunction(string name, params object[] args) {
+            Debug.Assert(isRunning, "Trying to Execute Function but graph is not running");
             IInvokable func = null;
             if ( functions.TryGetValue(name, out func) ) {
                 return func.Invoke(args);
@@ -50,6 +51,7 @@ namespace FlowCanvas
 
         ///Calls a custom function in the flowgraph async. When the function is done, it will callback with return value
         public void CallFunctionAsync(string name, System.Action<object> callback, params object[] args) {
+            Debug.Assert(isRunning, "Trying to Execute Function but graph is not running");
             IInvokable func = null;
             if ( functions.TryGetValue(name, out func) ) {
                 func.InvokeAsync(callback, args);

@@ -19,6 +19,11 @@ namespace FlowCanvas.Nodes
         private FlowOutput onPointerEnter;
         private FlowOutput onPointerExit;
         private FlowOutput onPointerClick;
+
+        private FlowOutput onPointerDrag;
+        private FlowOutput onPointerDrop;
+        private FlowOutput onPointerScroll;
+
         private GameObject receiver;
         private PointerEventData eventData;
 
@@ -31,6 +36,9 @@ namespace FlowCanvas.Nodes
             onPointerUp = AddFlowOutput("Up");
             onPointerEnter = AddFlowOutput("Enter");
             onPointerExit = AddFlowOutput("Exit");
+            onPointerDrag = AddFlowOutput("Drag");
+            onPointerDrop = AddFlowOutput("Drop");
+            onPointerScroll = AddFlowOutput("Scroll");
             AddValueOutput<GameObject>("Receiver", () => { return receiver; });
             AddValueOutput<PointerEventData>("Event Data", () => { return eventData; });
         }
@@ -41,6 +49,10 @@ namespace FlowCanvas.Nodes
             router.onPointerDown += OnPointerDown;
             router.onPointerUp += OnPointerUp;
             router.onPointerClick += OnPointerClick;
+            router.onDrag += OnPointerDrag;
+            router.onDrop += OnPointerDrop;
+            router.onScroll += OnPointerScroll;
+
         }
 
         protected override void UnSubscribe(ParadoxNotion.Services.EventRouter router) {
@@ -49,6 +61,9 @@ namespace FlowCanvas.Nodes
             router.onPointerDown -= OnPointerDown;
             router.onPointerUp -= OnPointerUp;
             router.onPointerClick -= OnPointerClick;
+            router.onDrag -= OnPointerDrag;
+            router.onDrop -= OnPointerDrop;
+            router.onScroll -= OnPointerScroll;
         }
 
         void OnPointerDown(ParadoxNotion.EventData<PointerEventData> msg) {
@@ -91,5 +106,24 @@ namespace FlowCanvas.Nodes
             this.eventData = msg.value;
             onPointerClick.Call(new Flow());
         }
+
+        void OnPointerDrag(ParadoxNotion.EventData<PointerEventData> msg) {
+            this.receiver = ResolveReceiver(msg.receiver).gameObject;
+            this.eventData = msg.value;
+            onPointerDrag.Call(new Flow());
+        }
+
+        void OnPointerDrop(ParadoxNotion.EventData<PointerEventData> msg) {
+            this.receiver = ResolveReceiver(msg.receiver).gameObject;
+            this.eventData = msg.value;
+            onPointerDrop.Call(new Flow());
+        }
+
+        void OnPointerScroll(ParadoxNotion.EventData<PointerEventData> msg) {
+            this.receiver = ResolveReceiver(msg.receiver).gameObject;
+            this.eventData = msg.value;
+            onPointerScroll.Call(new Flow());
+        }
+
     }
 }

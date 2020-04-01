@@ -29,14 +29,33 @@ namespace ParadoxNotion.Design
                 return result;
             }
 
+            // look for specific drawer first
+            Type fallbackDrawerType = null;
             foreach ( var drawerType in ReflectionTools.GetImplementationsOf(typeof(IObjectDrawer)) ) {
                 if ( drawerType != typeof(DefaultObjectDrawer) ) {
                     var args = drawerType.BaseType.RTGetGenericArguments();
-                    if ( args.Length == 1 && args[0].IsAssignableFrom(objectType) ) {
-                        return objectDrawers[objectType] = Activator.CreateInstance(drawerType) as IObjectDrawer;
+                    if ( args.Length == 1 ) {
+                        if ( args[0].IsEquivalentTo(objectType) ) {
+                            return objectDrawers[objectType] = Activator.CreateInstance(drawerType) as IObjectDrawer;
+                        }
+                        if ( args[0].IsAssignableFrom(objectType) ) { fallbackDrawerType = drawerType; }
                     }
                 }
             }
+
+            if ( fallbackDrawerType != null ) {
+                return objectDrawers[objectType] = Activator.CreateInstance(fallbackDrawerType) as IObjectDrawer;
+            }
+
+
+            // foreach ( var drawerType in ReflectionTools.GetImplementationsOf(typeof(IObjectDrawer)) ) {
+            //     if ( drawerType != typeof(DefaultObjectDrawer) ) {
+            //         var args = drawerType.BaseType.RTGetGenericArguments();
+            //         if ( args.Length == 1 && args[0].IsAssignableFrom(objectType) ) {
+            //             return objectDrawers[objectType] = Activator.CreateInstance(drawerType) as IObjectDrawer;
+            //         }
+            //     }
+            // }
 
             return objectDrawers[objectType] = new DefaultObjectDrawer(objectType);
         }

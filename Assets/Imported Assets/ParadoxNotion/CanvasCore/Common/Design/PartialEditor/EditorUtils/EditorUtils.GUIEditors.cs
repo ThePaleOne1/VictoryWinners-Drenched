@@ -238,9 +238,6 @@ namespace ParadoxNotion.Design
                 values.Add(valueType.IsValueType ? Activator.CreateInstance(valueType) : null);
             }
 
-            //clear before reconstruct
-            dict.Clear();
-
             for ( var i = 0; i < keys.Count; i++ ) {
                 GUILayout.BeginHorizontal("box");
                 GUILayout.Box("", GUILayout.Width(6), GUILayout.Height(35));
@@ -256,7 +253,11 @@ namespace ParadoxNotion.Design
                 }
 
                 GUILayout.EndHorizontal();
+            }
 
+            //clear and reconstruct on separate pass after GUI controls
+            dict.Clear();
+            for ( var i = 0; i < keys.Count; i++ ) {
                 try { dict.Add(keys[i], values[i]); }
                 catch { Logger.Log("Dictionary Key removed due to duplicate found", "Editor"); }
             }

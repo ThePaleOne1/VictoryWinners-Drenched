@@ -199,7 +199,8 @@ namespace ParadoxNotion
             var allTypes = GetAllTypes(true);
             for ( var i = 0; i < allTypes.Length; i++ ) {
                 var t = allTypes[i];
-                var att = t.RTGetAttribute<Serialization.DeserializeFromAttribute>(false);
+                var att = t.GetCustomAttribute(typeof(Serialization.DeserializeFromAttribute), false) as Serialization.DeserializeFromAttribute;
+                // var att = t.RTGetAttribute<Serialization.DeserializeFromAttribute>(false);
                 if ( att != null && att.previousTypeFullName == typeName ) {
                     return t;
                 }

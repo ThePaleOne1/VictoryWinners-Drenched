@@ -105,13 +105,13 @@ namespace NodeCanvas.Framework
         }
 
         ///The owner system's assigned agent
-        public Component ownerAgent => ownerSystem != null ? ownerSystem.agent : null;
+        public Component ownerSystemAgent => ownerSystem != null ? ownerSystem.agent : null;
 
         ///The owner system's assigned blackboard
-        public IBlackboard ownerBlackboard => ownerSystem != null ? ownerSystem.blackboard : null;
+        public IBlackboard ownerSystemBlackboard => ownerSystem != null ? ownerSystem.blackboard : null;
 
         ///The time in seconds that the owner system is running
-        public float ownerElapsedTime => ownerSystem != null ? ownerSystem.elapsedTime : 0;
+        public float ownerSystemElapsedTime => ownerSystem != null ? ownerSystem.elapsedTime : 0;
         ///
 
         ///Is the Task user enabled?
@@ -206,13 +206,13 @@ namespace NodeCanvas.Framework
             get
             {
                 if ( _currentAgent != null ) { return _currentAgent; }
-                var input = agentIsOverride ? (Component)_agentParameter.value : ownerAgent;
+                var input = agentIsOverride ? (Component)_agentParameter.value : ownerSystemAgent;
                 return input.TransformToType(agentType);
             }
         }
 
         ///The current or last blackboard used by this task
-        public IBlackboard blackboard => ownerBlackboard;
+        public IBlackboard blackboard => ownerSystemBlackboard;
 
         ///The cached EventRouter of the current agent used to subscribe/unsubscribe events
         ///Use this for custom named events as well -> '.router.onCustomEvent'
@@ -223,7 +223,7 @@ namespace NodeCanvas.Framework
         //Actions and Conditions call this before execution. Returns if the task was sucessfully initialized as well
         protected bool Set(Component newAgent, IBlackboard newBB) {
 
-            Debug.Assert(ReferenceEquals(newBB, ownerBlackboard), "Set Blackboard != Owner Blackboard");
+            Debug.Assert(ReferenceEquals(newBB, ownerSystemBlackboard), "Set Blackboard != Owner Blackboard");
 
             if ( agentIsOverride ) {
                 newAgent = (Component)_agentParameter.value;
