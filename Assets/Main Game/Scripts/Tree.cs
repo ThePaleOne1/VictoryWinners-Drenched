@@ -22,6 +22,9 @@ public class Tree : MonoBehaviour
         durability = Random.Range(3, 5);
 
         Player = Camera.main.gameObject;
+
+
+        transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
     }
 
     // Update is called once per frame
