@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ResourceMeter : MonoBehaviour
 {
+    public float maxValue = 101;
+
     public float Health;
     public float wood;
     public float food;
@@ -23,6 +25,8 @@ public class ResourceMeter : MonoBehaviour
 
     private void Update()
     {
+        //MaxDrainStatus();
+
         drainStatus();
     }
 
@@ -49,4 +53,14 @@ public class ResourceMeter : MonoBehaviour
             Health -= 10 * Time.deltaTime;
         }
     }
+
+    //void MaxDrainStatus()
+    //{
+    //    if(Health > maxValue)
+    //    {
+    //        Health -= 1 * Time.deltaTime;
+    //    }
+
+        
+    //}
 }
