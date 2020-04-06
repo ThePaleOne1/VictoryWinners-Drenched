@@ -9,6 +9,7 @@ TagManager:
   - Tree
   - Food
   - Suitcase
+  - Water
   layers:
   - Default
   - TransparentFX

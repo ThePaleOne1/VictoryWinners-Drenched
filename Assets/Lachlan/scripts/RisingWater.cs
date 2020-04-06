@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class RisingWater : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField]
+    float Speed = 0;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        transform.Translate(new Vector3(0, Speed*Time.deltaTime,0));
     }
 }
