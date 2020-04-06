@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
 
     private bool playerDetected;
 
+    private bool positionReturn;
+
     private bool positionSet;
 
     private Vector3 startingPosition;
@@ -65,37 +67,39 @@ public class EnemyController : MonoBehaviour
             }    
         }
 
-        if(distance >= aggroRadius)
-        {
-            positionSet = true;
+        //if(distance >= aggroRadius)
+        //{
+        //    positionReturn = true;
 
-            ReturnToStart();
-            playerDetected = false;
-        }
+        //    ReturnToStart();
+        //    playerDetected = false;
+        //}
 
         //if (angle < lookAngle)
         //{
-            
+
         //}
 
-        RoamingData();
+        StartCoroutine(RoamingData());
     }
 
-    void ReturnToStart()
-    {
-        if(positionSet == true)
-        {
-            agent.destination = startingPosition;
-            positionSet = false;
-        }
-    }
+    //void ReturnToStart()
+    //{
+    //    if(positionReturn == true)
+    //    {
+    //        agent.destination = startingPosition;
+    //        positionReturn = false;
+
+    //        Debug.Log("returning");
+    //    }
+    //}
        
 
-    void RoamingData()
+    IEnumerator RoamingData()
     {
         if(playerDetected == false)
         {
-            if(positionSet == false)
+            if(positionReturn == false)
             {
                 Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
 
@@ -107,7 +111,22 @@ public class EnemyController : MonoBehaviour
 
                 Vector3 finalPosition = hit.position;
 
-                agent.destination = finalPosition;
+                Debug.Log("Poisiton found");
+
+                positionSet = true;
+
+                
+
+                if (positionSet == true)
+                {
+                    Debug.Log("wandering to position");
+
+                    agent.destination = finalPosition;
+
+                    positionSet = false;
+
+                    yield return new WaitForSeconds(1);
+                }   
             }       
         } 
     }
