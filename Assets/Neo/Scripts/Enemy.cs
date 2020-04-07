@@ -17,10 +17,10 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            StartCoroutine(EnemyDrop());
-        }
+        //if (Input.GetMouseButton(0))
+        //{
+        //    StartCoroutine(EnemyDrop());
+        //}
 
         
     }
