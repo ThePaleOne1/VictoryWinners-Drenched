@@ -45,6 +45,12 @@ public class ReasourceScript : MonoBehaviour
                 Invoke("Food",cooldown);
             }
 
+            if (col.tag == "Bush")
+            {
+                anim.SetTrigger("Pickup");
+                Invoke("Bush", cooldown);
+            }
+
         }
     }
 
@@ -70,5 +76,11 @@ public class ReasourceScript : MonoBehaviour
     {
         resourceMeter.food += hitObj.GetComponent<foodItem>().foodAmount;
         Destroy(hitObj);
+    }
+
+    void Bush()
+    {
+        hitObj.GetComponent<Bush>().BushHit();
+        resourceMeter.fiber += hitObj.GetComponent<Bush>().fiberAmmount;
     }
 }
