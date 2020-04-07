@@ -9,15 +9,17 @@ public class EnemyController : MonoBehaviour
     public float roamRadius = 50f;
     public float attackRadius = 3f;
 
-    public float lookAngle = 45f;
-
     private bool playerDetected;
 
     private bool positionReturn;
 
-    private bool positionSet;
+    public bool positionSet;
+
+    private Vector3 finalPosition;
 
     private Vector3 startingPosition;
+
+    public float waitTime;
 
     Transform target;
 
@@ -35,6 +37,8 @@ public class EnemyController : MonoBehaviour
         startingPosition = transform.position;
 
         playerDetected = false;
+
+        waitTime = 5f;
     }
 
     // Update is called once per frame
@@ -42,10 +46,9 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
+        float wanderDistance = Vector3.Distance(finalPosition, transform.position);
+
         Vector3 tarDir = target.position - transform.position;
-
-        float angle = Vector3.Angle(tarDir, transform.forward);
-
 
         if (distance <= aggroRadius)
         {
@@ -75,12 +78,33 @@ public class EnemyController : MonoBehaviour
         //    playerDetected = false;
         //}
 
-        //if (angle < lookAngle)
-        //{
+        if (waitTime <= 0)
+        {
+            if(positionSet == true)
+            {
+                Debug.Log("wandering to position");
 
-        //}
+                agent.SetDestination(finalPosition);
 
-        StartCoroutine(RoamingData());
+                waitTime += 1 * Time.deltaTime;
+
+                
+
+                if(wanderDistance == agent.stoppingDistance)
+                {
+                    Debug.Log("wander destination reached");
+
+                    positionSet = false;
+                }
+            }           
+        }
+        else if (waitTime >= 5)
+        {
+            if(positionSet == false)
+            {
+                RoamingData();
+            }          
+        }
     }
 
     //void ReturnToStart()
@@ -95,40 +119,23 @@ public class EnemyController : MonoBehaviour
     //}
        
 
-    IEnumerator RoamingData()
+    void RoamingData()
     {
-        if(playerDetected == false)
-        {
-            if(positionReturn == false)
-            {
-                Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
+        Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
 
-                randomDirection += transform.position;
+        randomDirection += transform.position;
 
-                NavMeshHit hit;
+        NavMeshHit hit;
 
-                NavMesh.SamplePosition(randomDirection, out hit, roamRadius, 1);
+        NavMesh.SamplePosition(randomDirection, out hit, roamRadius, 1);
 
-                Vector3 finalPosition = hit.position;
+        finalPosition = hit.position;
 
-                Debug.Log("Poisiton found");
+        Debug.Log("Poisiton found");
 
-                positionSet = true;
+        positionSet = true;
 
-                
-
-                if (positionSet == true)
-                {
-                    Debug.Log("wandering to position");
-
-                    agent.destination = finalPosition;
-
-                    positionSet = false;
-
-                    yield return new WaitForSeconds(1);
-                }   
-            }       
-        } 
+        waitTime = 0f;
     }
 
     //void AttackTarget()
