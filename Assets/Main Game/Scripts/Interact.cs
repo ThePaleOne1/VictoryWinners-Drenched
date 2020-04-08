@@ -83,6 +83,7 @@ public class Interact : MonoBehaviour
                 
                 GameObject.FindObjectOfType<CharacterController>().enabled = false;
                 inventoryBag.gameObject.SetActive(true);
+                recipeBook.gameObject.SetActive(false); 
                 Time.timeScale = 0f;
                 ShowMouseCursor();
             }
@@ -102,6 +103,7 @@ public class Interact : MonoBehaviour
             {
                 GameObject.FindObjectOfType<CharacterController>().enabled = false;
                 recipeBook.gameObject.SetActive(true);
+                inventoryBag.gameObject.SetActive(false);
                 Time.timeScale = 0f;
                 ShowMouseCursor();
             }
