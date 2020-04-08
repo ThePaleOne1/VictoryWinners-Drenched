@@ -133,7 +133,7 @@ public class EnemyController : MonoBehaviour
                 statusStuff.Health -= theEnemy.attackDamage;
             }
 
-            theEnemy.attackTimer = 5f;
+            theEnemy.attackTimer = 10f;
 
             withinAttackRange = false;
         }
