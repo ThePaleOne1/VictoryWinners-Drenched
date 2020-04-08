@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
 
     public bool positionSet;
 
+    public bool withinAttackRange;
+
     private Vector3 finalPosition;
 
     private Vector3 startingPosition;
@@ -26,6 +28,8 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
 
     [SerializeField] ResourceMeter statusStuff;
+
+    [SerializeField] Enemy theEnemy;
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +41,8 @@ public class EnemyController : MonoBehaviour
         startingPosition = transform.position;
 
         playerDetected = false;
+
+        positionSet = false;
 
         waitTime = 5f;
     }
@@ -63,60 +69,75 @@ public class EnemyController : MonoBehaviour
                 FaceTarget();
             }
 
-            
+
             if (distance <= attackRadius)
             {
-                statusStuff.PlayerDamage();
-            }    
-        }
+                withinAttackRange = true;
 
-        //if(distance >= aggroRadius)
-        //{
-        //    positionReturn = true;
-
-        //    ReturnToStart();
-        //    playerDetected = false;
-        //}
-
-        if (waitTime <= 0)
-        {
-            if(positionSet == true)
-            {
-                Debug.Log("wandering to position");
-
-                agent.SetDestination(finalPosition);
-
-                waitTime += 1 * Time.deltaTime;
-
-                
-
-                if(wanderDistance == agent.stoppingDistance)
+                if (withinAttackRange)
                 {
-                    Debug.Log("wander destination reached");
-
-                    positionSet = false;
+                    EnemyAttack();
                 }
-            }           
-        }
-        else if (waitTime >= 5)
-        {
-            if(positionSet == false)
+            }
+            else
             {
-                RoamingData();
-            }          
+                withinAttackRange = false;
+            }
         }
+        else
+        {
+            playerDetected = false;
+        }
+
+        if(playerDetected == false)
+        {
+            if (waitTime <= 0)
+            {
+                if (positionSet == true)
+                {
+                    Debug.Log("wandering to position");
+
+                    agent.SetDestination(finalPosition);
+
+                    if (wanderDistance == agent.stoppingDistance)
+                    {
+                        Debug.Log("wander destination reached");
+
+                        waitTime -= 1 * Time.deltaTime;
+
+                        positionSet = false;
+                    }
+                }
+            }
+            else if (waitTime > 0)
+            {
+                if (positionSet == false)
+                {
+                    RoamingData();
+                }
+            }
+        }
+        
     }
 
-    //void ReturnToStart()
-    //{
-    //    if(positionReturn == true)
-    //    {
-    //        agent.destination = startingPosition;
-    //        positionReturn = false;
+    void EnemyAttack()
+    { 
+        if (theEnemy.attackTimer > 0)
+        {
+            theEnemy.attackTimer -= theEnemy.attackSpeed * Time.deltaTime;                  
+        }
+        else if (theEnemy.attackTimer <= 0)
+        {
+            if (statusStuff.Health > 0)
+            {
+                statusStuff.Health -= theEnemy.attackDamage;
+            }
 
-    //        Debug.Log("returning");
-    //    }
-    //}
+            theEnemy.attackTimer = 5f;
+
+            withinAttackRange = false;
+        }
+    }
        
 
     void RoamingData()
@@ -137,11 +158,6 @@ public class EnemyController : MonoBehaviour
 
         waitTime = 0f;
     }
-
-    //void AttackTarget()
-    //{
-
-    //}
 
     void FaceTarget()
     {

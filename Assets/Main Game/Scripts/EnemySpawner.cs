@@ -34,11 +34,13 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
 
-        Vector3 randomPosition = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+        Vector3 randomPosition = new Vector3(Random.Range(-10f, 10f) + transform.position.x, transform.position.y, Random.Range(-10f, 10f) + transform.position.z);
+
+        Quaternion randomRotation = Quaternion.Euler(0, Random.Range(-180f, 180f), 0);
 
         if(currentEnemySpawn < maxEnemySpawn)
         {
-            newEnemy = Instantiate(enemy, randomPosition, transform.rotation);
+            newEnemy = Instantiate(enemy, randomPosition, randomRotation);
             currentEnemySpawn++;
         }
     }
