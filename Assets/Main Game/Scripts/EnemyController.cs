@@ -40,11 +40,11 @@ public class EnemyController : MonoBehaviour
 
         startingPosition = transform.position;
 
-        playerDetected = false;
-
         positionSet = false;
 
         waitTime = 5f;
+
+        playerDetected = false;      
     }
 
     // Update is called once per frame
@@ -91,33 +91,28 @@ public class EnemyController : MonoBehaviour
 
         if(playerDetected == false)
         {
-            if (waitTime <= 0)
+            if (positionSet == true)
             {
-                if (positionSet == true)
-                {
-                    Debug.Log("wandering to position");
+                Debug.Log("wandering to position");
 
-                    agent.SetDestination(finalPosition);
+                agent.SetDestination(finalPosition);
 
-                    if (wanderDistance == agent.stoppingDistance)
-                    {
-                        Debug.Log("wander destination reached");
-
-                        waitTime -= 1 * Time.deltaTime;
-
-                        positionSet = false;
-                    }
-                }
+                waitTime += 1 * Time.deltaTime;
             }
-            else if (waitTime > 0)
+
+            if (waitTime >= 5)
             {
+                positionSet = false;
+
                 if (positionSet == false)
                 {
                     RoamingData();
                 }
             }
+
+         
         }
-        
+        //Debug.Log(wanderDistance); 
     }
 
     void EnemyAttack()
@@ -152,11 +147,13 @@ public class EnemyController : MonoBehaviour
 
         finalPosition = hit.position;
 
-        Debug.Log("Poisiton found");
+        Debug.Log("Position found");
 
         positionSet = true;
 
         waitTime = 0f;
+
+        
     }
 
     void FaceTarget()
