@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6049037201211956649}
   - component: {fileID: 6049037201211956663}
   - component: {fileID: 6049037201211956662}
+  - component: {fileID: 6070485020284093973}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Threat
@@ -151,8 +152,11 @@ MonoBehaviour:
   aggroRadius: 20
   roamRadius: 50
   attackRadius: 3
-  lookAngle: 10
+  positionSet: 0
+  withinAttackRange: 0
+  waitTime: 0
   statusStuff: {fileID: 0}
+  theEnemy: {fileID: 0}
 --- !u!114 &6049037201211956662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,13 +170,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
+  currentHealth: 0
   attackDamage: 0
+  attackSpeed: 0
+  attackTimer: 0
+  playerDamage: 0
+  ded: 0
   HealthFoodSanity:
   - {x: 50, y: 0, z: 0}
   WoodFiberFlint:
   - {x: 0, y: 0, z: 0}
   statusStuff: {fileID: 0}
   spawn: {fileID: 0}
+--- !u!136 &6070485020284093973
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049037201211956654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.83476657
+  m_Height: 2.779697
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.88990873, z: 0.022214837}
 --- !u!1 &6049037201749305050
 GameObject:
   m_ObjectHideFlags: 0

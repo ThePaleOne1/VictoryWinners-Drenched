@@ -12,6 +12,7 @@ public class ReasourceScript : MonoBehaviour
 
     [SerializeField]
     ResourceMeter resourceMeter;
+    [SerializeField] Enemy enemy;
     
     Animator anim;
     void Start()
@@ -51,6 +52,16 @@ public class ReasourceScript : MonoBehaviour
                 Invoke("Bush", cooldown);
             }
 
+            if(col.tag == "Threat")
+            {
+                anim.SetTrigger("Hit");
+                Invoke("Enemy", cooldown);
+                if(enemy.ded == true)
+                {
+                    Destroy(col.gameObject);
+                }
+            }
+
         }
     }
 
@@ -82,5 +93,10 @@ public class ReasourceScript : MonoBehaviour
     {
         hitObj.GetComponent<Bush>().BushHit();
         resourceMeter.fiber += hitObj.GetComponent<Bush>().fiberAmmount;
+    }
+
+    void Enemy()
+    {
+        hitObj.GetComponent<Enemy>().currentHealth -= enemy.playerDamage;
     }
 }
