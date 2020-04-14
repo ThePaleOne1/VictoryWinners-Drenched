@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public float maxHealth;
     public float attackDamage;
+    public float attackSpeed;
+
+    public float attackTimer;
 
     public Vector3[] HealthFoodSanity;
     public Vector3[] WoodFiberFlint;
@@ -47,6 +50,7 @@ public class Enemy : MonoBehaviour
         statusStuff.fiber += WoodFiberFlint[index].y;
         statusStuff.flint += WoodFiberFlint[index].z;
     }
+
 
 
 }
