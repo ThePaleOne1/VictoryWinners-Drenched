@@ -5,10 +5,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float maxHealth;
+    public float currentHealth;
     public float attackDamage;
     public float attackSpeed;
 
     public float attackTimer;
+
+    public float playerDamage;
+
+    public bool ded;
 
     public Vector3[] HealthFoodSanity;
     public Vector3[] WoodFiberFlint;
@@ -18,23 +23,17 @@ public class Enemy : MonoBehaviour
 
     int index;
 
-    private void Update()
+    private void Start()
     {
-        //if (Input.GetMouseButton(0))
-        //{
-        //    StartCoroutine(EnemyDrop());
-        //}
-
-        
+        currentHealth = maxHealth;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Threat"))
+        if(currentHealth <= 0)
         {
-            Destroy(collision.gameObject);
-
-            spawn.currentEnemySpawn--;
+            ded = true;
+            StartCoroutine(EnemyDrop());
         }
     }
 

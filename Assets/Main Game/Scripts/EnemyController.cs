@@ -23,7 +23,9 @@ public class EnemyController : MonoBehaviour
 
     public float waitTime;
 
-    Transform target;
+    private Rigidbody rigidbody;
+
+    Transform target;   
 
     NavMeshAgent agent;
 
@@ -38,6 +40,8 @@ public class EnemyController : MonoBehaviour
 
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
+        rigidbody = GetComponent<Rigidbody>();
+
         startingPosition = transform.position;
 
         positionSet = false;
@@ -51,8 +55,6 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
-
-        float wanderDistance = Vector3.Distance(finalPosition, transform.position);
 
         Vector3 tarDir = target.position - transform.position;
 
@@ -76,11 +78,13 @@ public class EnemyController : MonoBehaviour
 
                 if (withinAttackRange)
                 {
+                    agent.isStopped = true;
                     EnemyAttack();
                 }
             }
             else
             {
+                agent.isStopped = false;
                 withinAttackRange = false;
             }
         }
@@ -100,7 +104,7 @@ public class EnemyController : MonoBehaviour
                 waitTime += 1 * Time.deltaTime;
             }
 
-            if (waitTime >= 5)
+            if (waitTime >= Random.Range(1f, 5f))
             {
                 positionSet = false;
 
@@ -151,9 +155,7 @@ public class EnemyController : MonoBehaviour
 
         positionSet = true;
 
-        waitTime = 0f;
-
-        
+        waitTime = 0f;        
     }
 
     void FaceTarget()
