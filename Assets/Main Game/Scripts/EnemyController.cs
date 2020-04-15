@@ -42,6 +42,10 @@ public class EnemyController : MonoBehaviour
 
         rigidbody = GetComponent<Rigidbody>();
 
+        statusStuff = FindObjectOfType<ResourceMeter>();
+
+        theEnemy = FindObjectOfType<Enemy>();
+
         startingPosition = transform.position;
 
         positionSet = false;
