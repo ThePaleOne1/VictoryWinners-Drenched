@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - player
-  - 
+  - SlotLayer
   - 
   - 
   - 
@@ -45,9 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: InventoryLay
+    uniqueID: 2365835265
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 2365835265
     locked: 0

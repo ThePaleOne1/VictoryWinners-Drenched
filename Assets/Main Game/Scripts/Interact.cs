@@ -12,6 +12,8 @@ public class Interact : MonoBehaviour
 
     public float displayDur = 3f;
 
+    public Inventory inventory;
+
     public string[] opening = new string[] { "Oh Look", "Oh dear", "Yummy", "Crap" };
     public string[] middle = new string[] { "a Corona Virus,", "a tin can of tuna,", "It's empy," };
     public string[] ending = new string[] {"so lucky to have me.", "great, I'm allergic to it. Thanks Devs.", "all thanks to Lachlan, " +
@@ -116,6 +118,18 @@ public class Interact : MonoBehaviour
             }
         }
     }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
+        IIventoryItem item = hit.collider.GetComponent<IIventoryItem>();
+        if(item != null)
+        {
+            inventory.addedItem(item);
+        }
+    }
+
+
 
     public void ShowMouseCursor()
     {
