@@ -11,6 +11,7 @@ TagManager:
   - Suitcase
   - Water
   - Bush
+  - ItemImage
   layers:
   - Default
   - TransparentFX

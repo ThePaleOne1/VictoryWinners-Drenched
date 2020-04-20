@@ -10,5 +10,10 @@ public class Item : ScriptableObject
     public GameObject item;
 
     public Sprite itemSprite;
-    
+    private List<Item> items;
+
+    public Item(List<Item> items)
+    {
+        this.items = items;
+    }
 }

@@ -21,8 +21,16 @@ public class PickupableItem : MonoBehaviour
             Invoke("CanInteract", cooldown);
             if (col.tag == "Player")
             {
-                GameManager.instance.Additem(itemData);
-                Invoke("CanInteract", cooldown);
+                if(GameManager.instance.items.Count < GameManager.instance.slots.Length)
+                {
+                    GameManager.instance.Additem(itemData);
+                    Invoke("CanInteract", cooldown);
+                }
+                else
+                {
+
+                }
+                
             }
         }
         

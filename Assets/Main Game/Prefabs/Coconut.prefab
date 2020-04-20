@@ -105,7 +105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 15054b74504d7c2419bf60086d1fd1b9, type: 2}
   cooldown: 0.5
-  resourceMeter: {fileID: 0}
 --- !u!1 &7609083117590527567
 GameObject:
   m_ObjectHideFlags: 0
