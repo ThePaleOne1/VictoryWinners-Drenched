@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ReasourceScript : MonoBehaviour
 {
+   
+
     [SerializeField]
     float cooldown = 0.5f;
     bool canInteract = true;
-
-    
 
     [SerializeField]
     ResourceMeter resourceMeter;
@@ -41,8 +41,9 @@ public class ReasourceScript : MonoBehaviour
 
             if (col.tag == "Food")
             {
+
                 anim.SetTrigger("Pickup");
-                Invoke("Food",cooldown);
+                Invoke("Food", cooldown);
             }
 
             if (col.tag == "Bush")

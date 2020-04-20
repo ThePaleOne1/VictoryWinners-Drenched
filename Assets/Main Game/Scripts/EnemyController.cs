@@ -101,7 +101,7 @@ public class EnemyController : MonoBehaviour
         {
             if (positionSet == true)
             {
-                Debug.Log("wandering to position");
+                //Debug.Log("wandering to position");
 
                 agent.SetDestination(finalPosition);
 
@@ -155,7 +155,7 @@ public class EnemyController : MonoBehaviour
 
         finalPosition = hit.position;
 
-        Debug.Log("Position found");
+        //Debug.Log("Position found");
 
         positionSet = true;
 
