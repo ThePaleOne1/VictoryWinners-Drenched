@@ -19,12 +19,16 @@ public class Enemy : MonoBehaviour
     public Vector3[] WoodFiberFlint;
 
     public ResourceMeter statusStuff;
-    public EnemySpawner spawn;
+    public EnemySpawner spawner;
 
     int index;
 
     private void Start()
     {
+        statusStuff = FindObjectOfType<ResourceMeter>();
+
+        spawner = FindObjectOfType<EnemySpawner>();
+
         currentHealth = maxHealth;
     }
 
@@ -32,15 +36,20 @@ public class Enemy : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            ded = true;
-            StartCoroutine(EnemyDrop());
+            ded = true;          
+        }
+
+        if(ded == true)
+        {
+            EnemyDrop();
+            Destroy(this.gameObject);
+            spawner.currentEnemySpawn -= 1;
+            ded = false;
         }
     }
 
-    IEnumerator EnemyDrop()
+    void EnemyDrop()
     {
-        yield return new WaitForSeconds(0);
-
         statusStuff.Health += HealthFoodSanity[index].x;
         statusStuff.food += HealthFoodSanity[index].y;
         statusStuff.sanity += HealthFoodSanity[index].z;

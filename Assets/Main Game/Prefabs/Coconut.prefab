@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2265777113576782633}
   - component: {fileID: 722060885042453156}
   - component: {fileID: 4919000599553080077}
+  - component: {fileID: 898692175284445653}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Food
@@ -90,6 +91,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &898692175284445653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984625114270803957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b665964e91378446a18e9514c7b39ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 15054b74504d7c2419bf60086d1fd1b9, type: 2}
+  cooldown: 0.5
 --- !u!1 &7609083117590527567
 GameObject:
   m_ObjectHideFlags: 0

@@ -65,7 +65,7 @@ public class HotBar : MonoBehaviour
     {
         if(thisSlot.name == "HBSlot (" + scrollPosition + ")")
         {
-            thisSlot.GetComponent<Image>().color = Color.white;
+            thisSlot.GetComponent<Image>().color = Color.blue;
         }
         else
         {

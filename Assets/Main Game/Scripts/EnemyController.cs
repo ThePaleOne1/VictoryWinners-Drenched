@@ -42,6 +42,10 @@ public class EnemyController : MonoBehaviour
 
         rigidbody = GetComponent<Rigidbody>();
 
+        statusStuff = FindObjectOfType<ResourceMeter>();
+
+        theEnemy = FindObjectOfType<Enemy>();
+
         startingPosition = transform.position;
 
         positionSet = false;
@@ -97,7 +101,7 @@ public class EnemyController : MonoBehaviour
         {
             if (positionSet == true)
             {
-                Debug.Log("wandering to position");
+                //Debug.Log("wandering to position");
 
                 agent.SetDestination(finalPosition);
 
@@ -151,7 +155,7 @@ public class EnemyController : MonoBehaviour
 
         finalPosition = hit.position;
 
-        Debug.Log("Position found");
+        //Debug.Log("Position found");
 
         positionSet = true;
 

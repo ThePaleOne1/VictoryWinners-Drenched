@@ -8,6 +8,10 @@ public class EnemySpawner : MonoBehaviour
 
     public int currentEnemySpawn;
 
+    public float currentSpawnTime;
+
+    public float maxSpawnTime;
+
     public GameObject enemy;
 
     public GameObject newEnemy;
@@ -32,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnNewEnemy()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(0);
 
         Vector3 randomPosition = new Vector3(Random.Range(-10f, 10f) + transform.position.x, transform.position.y, Random.Range(-10f, 10f) + transform.position.z);
 
@@ -40,8 +44,14 @@ public class EnemySpawner : MonoBehaviour
 
         if(currentEnemySpawn < maxEnemySpawn)
         {
-            newEnemy = Instantiate(enemy, randomPosition, randomRotation);
-            currentEnemySpawn++;
+            currentSpawnTime -= 1 * Time.deltaTime;
+
+            if (currentSpawnTime <= 0)
+            {
+                newEnemy = Instantiate(enemy, randomPosition, randomRotation);
+                currentEnemySpawn += 1;
+                currentSpawnTime = maxSpawnTime;
+            }           
         }
     }
 }

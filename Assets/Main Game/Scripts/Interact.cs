@@ -12,6 +12,8 @@ public class Interact : MonoBehaviour
 
     public float displayDur = 3f;
 
+    //public Inventory inventory;
+
     public string[] opening = new string[] { "Oh Look", "Oh dear", "Yummy", "Crap" };
     public string[] middle = new string[] { "a Corona Virus,", "a tin can of tuna,", "It's empy," };
     public string[] ending = new string[] {"so lucky to have me.", "great, I'm allergic to it. Thanks Devs.", "all thanks to Lachlan, " +
@@ -76,24 +78,19 @@ public class Interact : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.LeftAlt))
         {
-            if(inventoryBag.gameObject.activeInHierarchy == false)
-            {
-                
-                GameObject.FindObjectOfType<CharacterController>().enabled = false;
-                inventoryBag.gameObject.SetActive(true);
-                recipeBook.gameObject.SetActive(false); 
-                Time.timeScale = 0f;
+           
                 ShowMouseCursor();
-            }
-            else if(inventoryBag.gameObject.activeInHierarchy == true)
+
+        }
+        else
+        {
+            if (Input.GetKeyUp(KeyCode.LeftAlt))
             {
-                
-                GameObject.FindObjectOfType<CharacterController>().enabled = true;
-                inventoryBag.gameObject.SetActive(false);
-                Time.timeScale = 1f;
-                HideMouseCursor();                
+
+                HideMouseCursor();
+
             }
         }
 
@@ -105,6 +102,7 @@ public class Interact : MonoBehaviour
                 recipeBook.gameObject.SetActive(true);
                 inventoryBag.gameObject.SetActive(false);
                 Time.timeScale = 0f;
+                GameManager.instance.isPaused = true;
                 ShowMouseCursor();
             }
             else if (recipeBook.gameObject.activeInHierarchy == true)
@@ -116,6 +114,18 @@ public class Interact : MonoBehaviour
             }
         }
     }
+
+    //private void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+
+    //    IIventoryItem item = hit.collider.GetComponent<IIventoryItem>();
+    //    if(item != null)
+    //    {
+    //        inventory.addedItem(item);
+    //    }
+    //}
+
+
 
     public void ShowMouseCursor()
     {
