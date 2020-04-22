@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] slots;
 
     //public Dictionary<Item, int> itemDict = new Dictionary<Item, int>(); //Optional
-    public Item addItem_01; // add item test
-    public Item removeItem_01; // remove item test
+    //public Item addItem_01; // add item test
+    //public Item removeItem_01; // remove item test
     private void Awake()
     {
         if(instance == null)
@@ -38,15 +38,15 @@ public class GameManager : MonoBehaviour
     
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Additem(addItem_01);
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    Additem(addItem_01);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            RemoveItem(removeItem_01);
-        }
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    RemoveItem(removeItem_01);
+        //}
     }
     private void DisplayItems()
     {

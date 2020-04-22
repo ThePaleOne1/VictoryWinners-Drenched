@@ -27,7 +27,7 @@ public class Interact : MonoBehaviour
     public bool suitcase;
     public GameObject toolTip;
     public GameObject itemDescribe;
-    public GameObject inventoryBag;
+    
     public GameObject recipeBook;
     public Text description;
 
@@ -41,7 +41,7 @@ public class Interact : MonoBehaviour
 
     public string getRandomItem()
     {
-        
+
         openIndex = Random.Range(0, opening.Length);
         midIndex = Random.Range(0, middle.Length);
         endIndex = Random.Range(0, ending.Length);
@@ -61,12 +61,12 @@ public class Interact : MonoBehaviour
     {
         toolTip.gameObject.SetActive(false);
         itemDescribe.gameObject.SetActive(false);
-        inventoryBag.gameObject.SetActive(false);
+        
         recipeBook.gameObject.SetActive(false);
 
         //effects.Add(new Vector3(health, food, wood), new Vector3(sanity, 0, 0));
 
-        
+
 
     }
 
@@ -74,15 +74,15 @@ public class Interact : MonoBehaviour
     {
         if (suitcase && Input.GetMouseButtonDown(0))
         {
-           StartCoroutine(CoronaVirus());
-            
+            StartCoroutine(CoronaVirus());
+
         }
 
         if (Input.GetKey(KeyCode.LeftAlt))
         {
-           
-                ShowMouseCursor();
 
+            ShowMouseCursor();
+            GameManager.instance.isPaused = true;
         }
         else
         {
@@ -90,7 +90,7 @@ public class Interact : MonoBehaviour
             {
 
                 HideMouseCursor();
-
+                GameManager.instance.isPaused = false;
             }
         }
 
@@ -100,7 +100,7 @@ public class Interact : MonoBehaviour
             {
                 GameObject.FindObjectOfType<CharacterController>().enabled = false;
                 recipeBook.gameObject.SetActive(true);
-                inventoryBag.gameObject.SetActive(false);
+                
                 Time.timeScale = 0f;
                 GameManager.instance.isPaused = true;
                 ShowMouseCursor();
@@ -141,7 +141,7 @@ public class Interact : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Suitcase"))
         {
-            
+
             toolTip.gameObject.SetActive(true);
             suitcase = true;
             //anim.SetTrigger("Pickup");
@@ -155,20 +155,20 @@ public class Interact : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Suitcase"))
         {
-            
+
             toolTip.gameObject.SetActive(false);
             suitcase = false;
             itemDescribe.gameObject.SetActive(false);
 
         }
 
-        
+
 
     }
 
     IEnumerator CoronaVirus()
     {
-        
+
         itemDescribe.gameObject.SetActive(true);
         string itemDesc = getRandomItem();
         //description.text = "You open the case and said\r\n" + itemDesc;
@@ -177,7 +177,7 @@ public class Interact : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-              
+
 
         rm.Health += HealthWoodFood[midIndex].x;
         rm.wood += HealthWoodFood[midIndex].y;
