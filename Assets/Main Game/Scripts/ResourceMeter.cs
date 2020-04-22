@@ -16,16 +16,23 @@ public class ResourceMeter : MonoBehaviour
     public float drainFood;
     public float drainHealth;
 
+    GameObject player;
+
     [SerializeField] StatusScript statusHUD;
 
     private void Start()
     {
-        
+        player = PlayerManager.instance.player;
     }
 
     private void Update()
     {
-       
+       if(Health <= 0)
+       {
+            Health = 0f;
+
+            Dieded();
+       }
 
         drainStatus();
     }
@@ -52,5 +59,10 @@ public class ResourceMeter : MonoBehaviour
         {
             Health -= 10 * Time.deltaTime;
         }
+    }
+
+    public void Dieded()
+    {
+        player.GetComponent<Animator>().SetBool("Dead", true);
     }
 }
