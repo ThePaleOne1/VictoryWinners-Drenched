@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ReasourceScript : MonoBehaviour
 {
-   
+
+    public Inventory AddItem;
 
     [SerializeField]
     float cooldown = 0.5f;
@@ -16,6 +17,7 @@ public class ReasourceScript : MonoBehaviour
     Animator anim;
     void Start()
     {
+        AddItem = GameObject.FindObjectOfType<Inventory>();
         
         anim = GetComponent<Animator>();
     }
@@ -36,14 +38,18 @@ public class ReasourceScript : MonoBehaviour
             {
                 anim.SetTrigger("Hit");
                 Invoke("HitTree", cooldown);
+                AddItem.GiveItem(2);
                 col.GetComponent<Tree>().isHit = true;
+               
             }
 
             if (col.tag == "Food")
             {
 
                 anim.SetTrigger("Pickup");
+                AddItem.GiveItem(4);
                 Invoke("Food", cooldown);
+                
             }
 
             if (col.tag == "Bush")

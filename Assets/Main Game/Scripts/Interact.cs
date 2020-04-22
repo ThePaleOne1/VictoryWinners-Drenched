@@ -82,7 +82,7 @@ public class Interact : MonoBehaviour
         {
 
             ShowMouseCursor();
-            GameManager.instance.isPaused = true;
+            
         }
         else
         {
@@ -90,7 +90,7 @@ public class Interact : MonoBehaviour
             {
 
                 HideMouseCursor();
-                GameManager.instance.isPaused = false;
+                
             }
         }
 
@@ -102,7 +102,7 @@ public class Interact : MonoBehaviour
                 recipeBook.gameObject.SetActive(true);
                 
                 Time.timeScale = 0f;
-                GameManager.instance.isPaused = true;
+                
                 ShowMouseCursor();
             }
             else if (recipeBook.gameObject.activeInHierarchy == true)
