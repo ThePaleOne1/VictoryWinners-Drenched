@@ -90,6 +90,7 @@ public class DialogPrompts : MonoBehaviour
     IEnumerator TypeSentence (string sentence)
     {
         dialogueText.text = "";
+        print("cleared text");
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
@@ -97,6 +98,7 @@ public class DialogPrompts : MonoBehaviour
 
             continueText.SetActive(true);
         }
+        print("printed new text");
     }
 
     void EndDialogue()
