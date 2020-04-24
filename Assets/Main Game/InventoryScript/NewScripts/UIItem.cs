@@ -9,25 +9,32 @@ public class UIItem : MonoBehaviour, IPointerDownHandler
     public Item item;
     private Image spriteImage;
     private UIItem selectedItem; // when holding the item
+    public bool craftingSlot = false; // it looks if there is a recipe to create stuff
+    private CraftingSlots craftingSlots;
 
     private void Awake()
     {
+        craftingSlots = FindObjectOfType<CraftingSlots>();
         selectedItem = GameObject.Find("SelectedItem").GetComponent<UIItem>();
         spriteImage = GetComponent<Image>();
         UpdateItem(null);
     }
 
-    public void UpdateItem(Item item) // Pass an Item and handle that item and show it on the UI
+    public void UpdateItem(Item item)
     {
         this.item = item;
         if (this.item != null)
         {
-            spriteImage.color = Color.white; // sets RBG and Alpha to 255.
+            spriteImage.color = Color.white;
             spriteImage.sprite = item.icon;
         }
         else
         {
-            spriteImage.color = Color.clear; // if it is null, it will set RPG and Alpha set to 0.
+            spriteImage.color = Color.clear;
+        }
+        if (craftingSlot)
+        {
+            craftingSlots.UpdateRecipe();
         }
     }
 

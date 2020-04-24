@@ -34,8 +34,8 @@ public class CraftRecipeDatabase : MonoBehaviour
             // To craft a Flint Axe
             new CraftRecipe(1,
             new int[] {
-                0, 3, 3,
-                0, 2, 3,
+                0, 4, 4,
+                0, 2, 4,
                 0, 2, 0
             }),
 
