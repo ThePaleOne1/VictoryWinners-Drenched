@@ -20,11 +20,17 @@ public class PlayerController : MonoBehaviour
 
     private bool isRunning;
 
+    public bool Dead;
+
+    public bool isPaused;
+
     private Vector2 rotation = Vector2.zero;
 
     private Vector3 moveDirection = Vector3.zero;
 
     CharacterController controller;
+
+    PauseScript pause;
 
     Animator anim;
        
@@ -34,6 +40,8 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         anim = GetComponent<Animator>();
+
+        pause = FindObjectOfType<PauseScript>();
     }
 
     // Update is called once per frame
@@ -42,14 +50,16 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded)
         {
             anim.GetComponent<Animator>().SetBool("IsGrounded", true);
-             
-            Movement();
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!Dead)
             {
-                Jump();
-            }
+                Movement();
 
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Jump();
+                }
+            }
             Debug.Log("grounded");
         }
 
@@ -72,7 +82,10 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(moveDirection * Time.deltaTime);
 
-        MouseLook();
+        if (!pause.pauseActive)
+        {
+            MouseLook();
+        }
 
         if (jumpCooldown > 0)
         {
@@ -87,6 +100,8 @@ public class PlayerController : MonoBehaviour
         float zSpeed = Input.GetAxis("Vertical");
 
         moveDirection = new Vector3(xSpeed, 0, zSpeed);
+
+        moveDirection = Camera.main.transform.TransformDirection(moveDirection);
 
         if (!isRunning)
         {

@@ -18,11 +18,15 @@ public class ResourceMeter : MonoBehaviour
 
     GameObject player;
 
+    PlayerController controller;
+
     [SerializeField] StatusScript statusHUD;
 
     private void Start()
     {
         player = PlayerManager.instance.player;
+
+        controller = player.GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -64,5 +68,7 @@ public class ResourceMeter : MonoBehaviour
     public void Dieded()
     {
         player.GetComponent<Animator>().SetBool("Dead", true);
+
+        controller.Dead = true;
     }
 }
