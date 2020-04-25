@@ -12807,20 +12807,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60000636865615370, guid: 754629d747fb78245b6ee077d515bc62,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 60000636865615370, guid: 754629d747fb78245b6ee077d515bc62,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 60000636865615370, guid: 754629d747fb78245b6ee077d515bc62,
+        type: 3}
+      propertyPath: runSpeed
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 60000636865615370, guid: 754629d747fb78245b6ee077d515bc62,
+        type: 3}
+      propertyPath: gravity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 60000636865615370, guid: 754629d747fb78245b6ee077d515bc62,
+        type: 3}
+      propertyPath: cameraSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 60000636865615370, guid: 754629d747fb78245b6ee077d515bc62,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 3164723480085935763, guid: 754629d747fb78245b6ee077d515bc62,
         type: 3}
       propertyPath: _boundGraphSource._translation.x
-      value: -939
+      value: -796
       objectReference: {fileID: 0}
     - target: {fileID: 3164723480085935763, guid: 754629d747fb78245b6ee077d515bc62,
         type: 3}
       propertyPath: _boundGraphSource._translation.y
-      value: -258
+      value: 187
       objectReference: {fileID: 0}
     - target: {fileID: 3164723480085935763, guid: 754629d747fb78245b6ee077d515bc62,
         type: 3}
       propertyPath: _boundGraphSource._zoomFactor
-      value: 0.6790909
+      value: 0.5964205
       objectReference: {fileID: 0}
     - target: {fileID: 3164723480085935763, guid: 754629d747fb78245b6ee077d515bc62,
         type: 3}
@@ -12942,6 +12972,11 @@ PrefabInstance:
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"WalkSpeed":{"_value":0.1,"_name":"WalkSpeed","_id":"d9c2aa03-816f-4682-8ff5-1f8b37028348","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}}'
       objectReference: {fileID: 0}
+    - target: {fileID: 3164723480085935763, guid: 754629d747fb78245b6ee077d515bc62,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3164723480085935765, guid: 754629d747fb78245b6ee077d515bc62,
         type: 3}
       propertyPath: resourceMeter
@@ -13000,7 +13035,7 @@ PrefabInstance:
     - target: {fileID: 7967413040146294361, guid: 754629d747fb78245b6ee077d515bc62,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.89
+      value: 45.24
       objectReference: {fileID: 0}
     - target: {fileID: 7967413040146294361, guid: 754629d747fb78245b6ee077d515bc62,
         type: 3}
