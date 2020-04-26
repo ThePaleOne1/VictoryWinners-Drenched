@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isRunning;
 
+    public bool sprintEnabled;
+
     public bool Dead;
 
     public bool isPaused;
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
 
         pause = FindObjectOfType<PauseScript>();
+
+        sprintEnabled = true;
     }
 
     // Update is called once per frame
@@ -65,7 +69,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            isRunning = true;
+            if (sprintEnabled)
+            {
+                isRunning = true;
+            }
+            
         }
         else
         {

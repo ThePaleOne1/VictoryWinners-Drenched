@@ -76,7 +76,6 @@ public class ReasourceScript : MonoBehaviour
 
     private void HitTree()
     {
-        resourceMeter.wood += 1;
         hitObj.GetComponent<Tree>().durability -= 1;
         int spawnChance = Mathf.RoundToInt(Random.value * 10);
         if (spawnChance > 8)
@@ -95,7 +94,7 @@ public class ReasourceScript : MonoBehaviour
     void Bush()
     {
         hitObj.GetComponent<Bush>().BushHit();
-        resourceMeter.fiber += hitObj.GetComponent<Bush>().fiberAmmount;
+        //resourceMeter.fiber += hitObj.GetComponent<Bush>().fiberAmmount;
     }
 
     void Enemy()

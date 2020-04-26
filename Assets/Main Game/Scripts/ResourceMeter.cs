@@ -7,11 +7,8 @@ public class ResourceMeter : MonoBehaviour
     public float maxValue = 101;
 
     public float Health;
-    public float wood;
     public float food;
     public float sanity;
-    public float fiber;
-    public float flint;
 
     public float drainFood;
     public float drainHealth;
@@ -38,7 +35,11 @@ public class ResourceMeter : MonoBehaviour
             Dieded();
        }
 
+      
+
         drainStatus();
+
+        SanityEffects();
     }
 
     void drainStatus()
@@ -46,6 +47,11 @@ public class ResourceMeter : MonoBehaviour
         if (food > 0)
         {
             food -= drainFood * Time.deltaTime;
+
+            if(Health < 100)
+            {
+                Health += drainHealth / 2 * Time.deltaTime;
+            }
         }
 
         if(food <= 0)
@@ -57,12 +63,56 @@ public class ResourceMeter : MonoBehaviour
         }
     }
 
+    void MaxStatus()
+    {
+       if(Health > 100)
+       {
+          Health = 100f;
+       }
+
+       if(food > 100)
+       {
+          food = 100f;
+       }
+
+       if(sanity > 100)
+       {
+          sanity = 100f;
+       }
+    }
+
     public void PlayerDamage()
     {
         if (Health > 0)
         {
             Health -= 10 * Time.deltaTime;
         }
+    }
+
+    public void SanityEffects()
+    {
+        if(sanity < 50)
+        {
+            controller.sprintEnabled = false;
+        }
+        else
+        {
+            controller.sprintEnabled = true;
+        }
+
+        if(sanity < 10)
+        {
+            if(food > 0)
+            {
+                food -= drainFood * 2 * Time.deltaTime;
+            }
+
+            if (Health > 0)
+            {
+                Health -= drainHealth * 2 * Time.deltaTime;
+            }
+        }
+        
     }
 
     public void Dieded()

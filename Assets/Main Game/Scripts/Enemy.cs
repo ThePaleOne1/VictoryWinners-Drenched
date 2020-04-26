@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     public bool ded;
 
     public Vector3[] HealthFoodSanity;
-    public Vector3[] WoodFiberFlint;
 
     public ResourceMeter statusStuff;
     public EnemySpawner spawner;
@@ -53,10 +52,6 @@ public class Enemy : MonoBehaviour
         statusStuff.Health += HealthFoodSanity[index].x;
         statusStuff.food += HealthFoodSanity[index].y;
         statusStuff.sanity += HealthFoodSanity[index].z;
-
-        statusStuff.wood += WoodFiberFlint[index].x;
-        statusStuff.fiber += WoodFiberFlint[index].y;
-        statusStuff.flint += WoodFiberFlint[index].z;
     }
 
 

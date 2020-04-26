@@ -10,9 +10,6 @@ public class StatusScript : MonoBehaviour
     public float maxResource = 100;
     public float maxSanity = 100;
 
-    private float currentWood;
-    private float currentFiber;
-    private float currentFlint;
     //public float currentHealth;
     private float currentFood;
     private float currentSanity;
@@ -31,15 +28,9 @@ public class StatusScript : MonoBehaviour
     public Image healthIcon;
     public Image foodIcon;
     public Image sanityIcon;
-    public Image woodIcon;
-    public Image fiberIcon;
-    public Image flintIcon;
 
     public Text healthNumber;   
     public Text foodNumber;
-    public Text woodNumber;
-    public Text fiberNumber;
-    public Text flintNumber;
     public Text sanityNumber;
 
     [SerializeField] private ResourceMeter StatusStuff;
@@ -55,17 +46,6 @@ public class StatusScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(currentHealth > 0)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        currentHealth -= 10;
-
-        //        updateStatus();
-
-        //        Debug.Log("ouchies");
-        //    }
-        //}
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -85,9 +65,6 @@ public class StatusScript : MonoBehaviour
     {
         StatusStuff.Health = maxHealth;
         currentFood = StatusStuff.food;
-        currentWood = StatusStuff.wood;
-        currentFiber = StatusStuff.fiber;
-        currentFlint = StatusStuff.flint;
         currentSanity = StatusStuff.sanity;
 
         healthSlider.maxValue = maxHealth;
@@ -96,23 +73,11 @@ public class StatusScript : MonoBehaviour
         foodSlider.maxValue = maxFood;
         foodSlider.value = maxFood;
 
-        woodSlider.maxValue = maxResource;
-        woodSlider.value = currentWood;
-
-        fiberSlider.maxValue = maxResource;
-        fiberSlider.value = currentFiber;
-
-        flintSlider.maxValue = maxResource;
-        flintSlider.value = currentFlint;
-
         sanitySlider.maxValue = maxSanity;
         sanitySlider.value = currentSanity;
 
         healthNumber.text = "" + StatusStuff.Health.ToString("f0");
         foodNumber.text = "" + currentFood.ToString("f0");
-        woodNumber.text = "" + currentWood.ToString("f0");
-        fiberNumber.text = "" + currentFiber.ToString("f0");
-        flintNumber.text = "" + currentFlint.ToString("f0");
         sanityNumber.text = "" + currentSanity.ToString("f0");
     }
    
@@ -124,15 +89,6 @@ public class StatusScript : MonoBehaviour
 
         foodNumber.gameObject.SetActive(true);
         foodIcon.gameObject.SetActive(false);
-
-        woodNumber.gameObject.SetActive(true);
-        woodIcon.gameObject.SetActive(false);
-
-        fiberNumber.gameObject.SetActive(true);
-        fiberIcon.gameObject.SetActive(false);
-
-        flintNumber.gameObject.SetActive(true);
-        flintIcon.gameObject.SetActive(false);
 
         sanityNumber.gameObject.SetActive(true);
         sanityIcon.gameObject.SetActive(false);
@@ -147,15 +103,6 @@ public class StatusScript : MonoBehaviour
         foodNumber.gameObject.SetActive(false);
         foodIcon.gameObject.SetActive(true);
 
-        woodNumber.gameObject.SetActive(false);
-        woodIcon.gameObject.SetActive(true);
-
-        fiberNumber.gameObject.SetActive(false);
-        fiberIcon.gameObject.SetActive(true);
-
-        flintNumber.gameObject.SetActive(false);
-        flintIcon.gameObject.SetActive(true);
-
         sanityNumber.gameObject.SetActive(false);
         sanityIcon.gameObject.SetActive(true);
     }
@@ -169,18 +116,6 @@ public class StatusScript : MonoBehaviour
         currentFood = StatusStuff.food;
         foodSlider.value = currentFood;
         foodNumber.text = "" + currentFood.ToString("f0");
-
-        currentWood = StatusStuff.wood;
-        woodSlider.value = currentWood;
-        woodNumber.text = "" + currentWood.ToString("f0");
-
-        currentFiber = StatusStuff.fiber;
-        fiberSlider.value = currentFiber;
-        fiberNumber.text = "" + currentFiber.ToString("f0");
-
-        currentFlint = StatusStuff.flint;
-        flintSlider.value = currentFlint;
-        flintNumber.text = "" + currentFlint.ToString("f0");
 
         currentSanity = StatusStuff.sanity;
         sanitySlider.value = currentSanity;

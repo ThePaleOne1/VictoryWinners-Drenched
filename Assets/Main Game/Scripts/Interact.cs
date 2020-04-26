@@ -180,11 +180,8 @@ public class Interact : MonoBehaviour
 
 
         rm.Health += HealthWoodFood[midIndex].x;
-        rm.wood += HealthWoodFood[midIndex].y;
         rm.food += HealthWoodFood[midIndex].z;
         rm.sanity += SanityFiberFlint[midIndex].x;
-        rm.fiber += SanityFiberFlint[midIndex].y;
-        rm.flint += SanityFiberFlint[midIndex].z;
         toolTip.gameObject.SetActive(false);
         suitcase = false;
         itemDescribe.gameObject.SetActive(false);
