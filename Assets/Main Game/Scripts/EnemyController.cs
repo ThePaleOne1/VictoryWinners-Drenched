@@ -23,8 +23,6 @@ public class EnemyController : MonoBehaviour
 
     public float waitTime;
 
-    private Rigidbody rigidbody;
-
     Transform target;   
 
     NavMeshAgent agent;
@@ -39,8 +37,6 @@ public class EnemyController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
 
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-        rigidbody = GetComponent<Rigidbody>();
 
         statusStuff = FindObjectOfType<ResourceMeter>();
 
@@ -134,6 +130,11 @@ public class EnemyController : MonoBehaviour
             if (statusStuff.Health > 0)
             {
                 statusStuff.Health -= theEnemy.attackDamage;
+            }
+
+            if(statusStuff.sanity > 0)
+            {
+                statusStuff.sanity -= theEnemy.sanityDamage;
             }
 
             theEnemy.attackTimer = 10f;

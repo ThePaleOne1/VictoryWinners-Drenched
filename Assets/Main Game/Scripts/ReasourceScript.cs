@@ -7,6 +7,10 @@ public class ReasourceScript : MonoBehaviour
 
     public Inventory AddItem;
 
+    GameObject player;
+
+    PlayerController controller;
+
     [SerializeField]
     float cooldown = 0.5f;
     bool canInteract = true;
@@ -20,52 +24,59 @@ public class ReasourceScript : MonoBehaviour
         AddItem = GameObject.FindObjectOfType<Inventory>();
         
         anim = GetComponent<Animator>();
+
+        player = PlayerManager.instance.player;
+
+        controller = GetComponent<PlayerController>();
     }
 
     GameObject hitObj;
     private void OnTriggerStay(Collider col)
     {
-        if (Input.GetMouseButtonDown(0) && canInteract) 
+        if (!controller.Dead)
         {
-            canInteract = false;
-            
-            
-            Invoke("CanInteract", cooldown);
-            hitObj = col.gameObject;
-            print(hitObj.name);
-
-            if (col.tag == "Tree")
+            if (Input.GetMouseButtonDown(0) && canInteract)
             {
-                anim.SetTrigger("Hit");
-                Invoke("HitTree", cooldown);
-                
-                col.GetComponent<Tree>().isHit = true;
-                AddItem.GiveItem(2);
+                canInteract = false;
+
+
+                Invoke("CanInteract", cooldown);
+                hitObj = col.gameObject;
+                print(hitObj.name);
+
+                if (col.tag == "Tree")
+                {
+                    anim.SetTrigger("Hit");
+                    Invoke("HitTree", cooldown);
+
+                    col.GetComponent<Tree>().isHit = true;
+                    AddItem.GiveItem(2);
+
+                }
+
+                if (col.tag == "Food")
+                {
+
+                    anim.SetTrigger("Pickup");
+                    AddItem.GiveItem(4);
+                    Invoke("Food", cooldown);
+
+                }
+
+                if (col.tag == "Bush")
+                {
+                    anim.SetTrigger("Pickup");
+                    Invoke("Bush", cooldown);
+                }
+
+                if (col.tag == "Threat")
+                {
+                    anim.SetTrigger("Hit");
+                    Invoke("Enemy", cooldown);
+                }
 
             }
-
-            if (col.tag == "Food")
-            {
-
-                anim.SetTrigger("Pickup");
-                AddItem.GiveItem(4);
-                Invoke("Food", cooldown);
-                
-            }
-
-            if (col.tag == "Bush")
-            {
-                anim.SetTrigger("Pickup");
-                Invoke("Bush", cooldown);
-            }
-
-            if(col.tag == "Threat")
-            {
-                anim.SetTrigger("Hit");
-                Invoke("Enemy", cooldown);               
-            }
-
-        }
+        }       
     }
 
     void CanInteract()

@@ -35,7 +35,7 @@ public class ResourceMeter : MonoBehaviour
             Dieded();
        }
 
-      
+        MaxStatus();
 
         drainStatus();
 

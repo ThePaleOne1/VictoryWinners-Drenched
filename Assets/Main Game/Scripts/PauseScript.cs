@@ -8,6 +8,12 @@ public class PauseScript : MonoBehaviour
 {
     public GameObject pauseScreen;
 
+    public GameObject gameOverScreen;
+
+    GameObject player;
+
+    PlayerController controller;
+
     public bool pauseActive;
     
     // Start is called before the first frame update
@@ -17,7 +23,13 @@ public class PauseScript : MonoBehaviour
 
         pauseScreen.SetActive(false);
 
+        gameOverScreen.SetActive(false);
+
         Cursor.lockState = CursorLockMode.Locked;
+
+        player = PlayerManager.instance.player;
+
+        controller = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -28,17 +40,24 @@ public class PauseScript : MonoBehaviour
             if(pauseActive)
             {
                 Resume();
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 Pause();
             }
         }
+
+        if (controller.Dead)
+        {
+            GameOver();
+        }
     }
 
     public void Resume()
     {
         Time.timeScale = 1.0f;
+        controller.mouseLook = true;
         Cursor.lockState = CursorLockMode.Locked;
         pauseScreen.SetActive(false);
         pauseActive = false;
@@ -48,6 +67,7 @@ public class PauseScript : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0.0f;
+        controller.mouseLook = false;
         Cursor.lockState = CursorLockMode.None;
         pauseScreen.SetActive(true);
         pauseActive = true;
@@ -58,5 +78,12 @@ public class PauseScript : MonoBehaviour
     {
         SceneManager.LoadScene(index);
         Time.timeScale = 1.0f;
+    }
+
+    public void GameOver()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        controller.mouseLook = false;
+        gameOverScreen.SetActive(true);
     }
 }

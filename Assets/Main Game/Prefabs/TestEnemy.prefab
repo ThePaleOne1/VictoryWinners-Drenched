@@ -172,14 +172,13 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   attackDamage: 10
+  sanityDamage: 2
   attackSpeed: 5
   attackTimer: 0
   playerDamage: 2
   ded: 0
   HealthFoodSanity:
-  - {x: 10, y: 0, z: 0}
-  WoodFiberFlint:
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 5, z: 5}
   statusStuff: {fileID: 0}
   spawner: {fileID: 0}
 --- !u!136 &6070485020284093973

@@ -5,11 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed;
-
     public float runSpeed;
-
     public float cameraSpeed;
-
     public float jumpHeight;
 
     private float jumpCooldown = 1.0f;
@@ -17,14 +14,14 @@ public class PlayerController : MonoBehaviour
     public float gravity = 20f;
 
     private bool isWalking;
-
     private bool isRunning;
-
     public bool sprintEnabled;
 
     public bool Dead;
 
     public bool isPaused;
+
+    public bool mouseLook;
 
     private Vector2 rotation = Vector2.zero;
 
@@ -46,6 +43,8 @@ public class PlayerController : MonoBehaviour
         pause = FindObjectOfType<PauseScript>();
 
         sprintEnabled = true;
+
+        mouseLook = true;
     }
 
     // Update is called once per frame
@@ -90,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(moveDirection * Time.deltaTime);
 
-        if (!pause.pauseActive)
+        if (mouseLook)
         {
             MouseLook();
         }

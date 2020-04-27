@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float attackDamage;
+    public float sanityDamage;
     public float attackSpeed;
 
     public float attackTimer;
