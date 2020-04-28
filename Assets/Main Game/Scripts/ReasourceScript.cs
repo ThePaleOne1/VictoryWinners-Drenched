@@ -69,6 +69,14 @@ public class ReasourceScript : MonoBehaviour
                     Invoke("Bush", cooldown);
                 }
 
+                if (col.tag == "Flint")
+                {
+                    anim.SetTrigger("Pickup");
+                    AddItem.GiveItem(3);
+                    Invoke("Flint", cooldown);
+                    
+                }
+
                 if (col.tag == "Threat")
                 {
                     anim.SetTrigger("Hit");
@@ -99,6 +107,11 @@ public class ReasourceScript : MonoBehaviour
     void Food()
     {
         resourceMeter.food += hitObj.GetComponent<foodItem>().foodAmount;
+        Destroy(hitObj);
+    }
+    void Flint()
+    {
+        resourceMeter.food += hitObj.GetComponent<Flint>().flintAmount;
         Destroy(hitObj);
     }
 

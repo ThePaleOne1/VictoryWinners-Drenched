@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3390f8ce679004ea4136815c2a924d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftingSlot: 0
 --- !u!1 &7551053116678214205
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b1d1c57111bb5b240a12c01f83937cdb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d28861306bd4394fa1222c8e3448ada, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

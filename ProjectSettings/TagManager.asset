@@ -12,6 +12,7 @@ TagManager:
   - Water
   - Bush
   - ItemImage
+  - Flint
   layers:
   - Default
   - TransparentFX
