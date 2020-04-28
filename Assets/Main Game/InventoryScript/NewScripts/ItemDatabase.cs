@@ -49,6 +49,18 @@ public class ItemDatabase : MonoBehaviour
 
             }),
 
+            new Item(5, "Fiber", "Use for crafting.",
+            new Dictionary<string, int> {
+                { "Value", 0 },
+
+            }),
+
+            new Item(6, "Raft Plank", "4 of these we can make a raft.",
+            new Dictionary<string, int> {
+                { "Value", 0 },
+
+            }),
+
         };
     }
 }

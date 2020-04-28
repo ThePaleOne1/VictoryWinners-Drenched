@@ -17,6 +17,9 @@ public class ReasourceScript : MonoBehaviour
 
     [SerializeField]
     ResourceMeter resourceMeter;
+    Flint flint;
+    Fiber Fiber;
+
     
     Animator anim;
     void Start()
@@ -66,6 +69,7 @@ public class ReasourceScript : MonoBehaviour
                 if (col.tag == "Bush")
                 {
                     anim.SetTrigger("Pickup");
+                    AddItem.GiveItem(5);
                     Invoke("Bush", cooldown);
                 }
 
@@ -111,14 +115,14 @@ public class ReasourceScript : MonoBehaviour
     }
     void Flint()
     {
-        resourceMeter.food += hitObj.GetComponent<Flint>().flintAmount;
+        //flint.flintAmount += hitObj.GetComponent<Flint>().flintAmount;
         Destroy(hitObj);
     }
 
     void Bush()
     {
-        hitObj.GetComponent<Bush>().BushHit();
-        //resourceMeter.fiber += hitObj.GetComponent<Bush>().fiberAmmount;
+        //Fiber.fiberAmount += hitObj.GetComponent<Fiber>().fiberAmount;
+        Destroy(hitObj);
     }
 
     void Enemy()

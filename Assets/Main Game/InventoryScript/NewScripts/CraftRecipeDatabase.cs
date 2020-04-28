@@ -34,8 +34,8 @@ public class CraftRecipeDatabase : MonoBehaviour
             // To craft a Flint Axe
             new CraftRecipe(1,
             new int[] {
-                0, 4, 4,
-                0, 2, 4,
+                0, 3, 3,
+                5, 2, 3,
                 0, 2, 0
             }),
 
@@ -48,11 +48,19 @@ public class CraftRecipeDatabase : MonoBehaviour
             }),
 
             // To craft planks for Raft.
-            new CraftRecipe(3,
+            new CraftRecipe(6,
             new int[] {
+                5, 2, 2,
                 0, 2, 2,
-                0, 2, 2,
-                0, 2, 2
+                5, 2, 2
+            }),
+
+            // To craft planks for Sail.
+            new CraftRecipe(0,
+            new int[] {
+                5, 5, 5,
+                5, 2, 5,
+                5, 2, 5
             })
         };
     }

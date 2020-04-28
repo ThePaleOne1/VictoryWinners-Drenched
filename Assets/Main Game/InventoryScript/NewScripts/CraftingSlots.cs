@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CraftingSlots : MonoBehaviour
 {
     public CraftRecipeDatabase recipeDatabase;
     private List<UIItem> uiItems = new List<UIItem>();
     public UIItem craftResultSlot;
+
+    
+    
 
     public void UpdateRecipe()
     {
@@ -16,15 +20,19 @@ public class CraftingSlots : MonoBehaviour
             if (uiItems[i].item != null)
             {
                 itemTable[i] = uiItems[i].item.id;
+                
             }
+
         }
         Item itemToCraft = recipeDatabase.CheckRecipe(itemTable);
         UpdateCraftingResultSlot(itemToCraft);
+        
     }
 
     void UpdateCraftingResultSlot(Item itemToCraft)
     {
         craftResultSlot.UpdateItem(itemToCraft);
+        
     }
 
     private void Start()
@@ -32,4 +40,6 @@ public class CraftingSlots : MonoBehaviour
         uiItems = GetComponent<SlotPanel>().uiItems;
         uiItems.ForEach(i => i.craftingSlot = true);
     }
+
+    
 }
