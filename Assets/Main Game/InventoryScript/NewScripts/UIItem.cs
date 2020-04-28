@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class UIItem : MonoBehaviour, IPointerDownHandler
+public class UIItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public Item item;
     private Image spriteImage;
     private UIItem selectedItem; // when holding the item
+    private Tooltip tooltip;
     public bool craftingSlot = false; // it looks if there is a recipe to create stuff
     private CraftingSlots craftingSlots;
 
     private void Awake()
     {
         craftingSlots = FindObjectOfType<CraftingSlots>();
+        tooltip = FindObjectOfType<Tooltip>();
         selectedItem = GameObject.Find("SelectedItem").GetComponent<UIItem>();
         spriteImage = GetComponent<Image>();
         UpdateItem(null);
@@ -59,5 +61,18 @@ public class UIItem : MonoBehaviour, IPointerDownHandler
             UpdateItem(selectedItem.item);
             selectedItem.UpdateItem(null);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(this.item != null)
+        {
+            tooltip.GenerateTooltip(item);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
     }
 }

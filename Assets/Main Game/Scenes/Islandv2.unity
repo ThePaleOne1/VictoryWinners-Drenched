@@ -12270,6 +12270,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1008803588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008803580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd86e37c0ce8f4d4b8671685a735f69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1011424874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6470193235311232598, guid: 1fcb6ddfd70215647b9e4370e2ed5777,
@@ -14002,6 +14014,16 @@ PrefabInstance:
       propertyPath: craftResultSlot
       value: 
       objectReference: {fileID: 1519995809}
+    - target: {fileID: 6717622424352730712, guid: b3ce78a33d07644439e5564eb4df8cf1,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6717622424352730712, guid: b3ce78a33d07644439e5564eb4df8cf1,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7718251518365537086, guid: b3ce78a33d07644439e5564eb4df8cf1,
         type: 3}
       propertyPath: m_Enabled
