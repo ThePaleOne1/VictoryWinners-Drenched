@@ -50,6 +50,8 @@ public class NPCAI : MonoBehaviour
     int food = 4;
     float ScavengeTimer = 0;
     SlotPanel slotPanel;
+    bool scavCool = false;
+    float scavCoolTimer = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,19 @@ public class NPCAI : MonoBehaviour
         if (ScavengeTimer < 0)
         {
             isDoneScavening = true;
+        }
+
+
+        if (scavCool)
+        {
+            if(scavCoolTimer > 0)
+            {
+                scavCoolTimer -= Time.deltaTime;
+            }
+            else
+            {
+                scavCool = false;
+            }
         }
 
 
@@ -104,14 +119,14 @@ public class NPCAI : MonoBehaviour
                     hasChoice = false;
                     break;
 
-                case "3":
+                case "69420":
                     print("choose to trade");
                     whatSentenceAmIOn = tradeRespones;
                     StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
                     hasChoice = false;
                     break;
 
-                case "4":
+                case "3":
                     print("choose to leave the conversation");
                     whatSentenceAmIOn = goodbyeResponse;
                     StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
@@ -210,7 +225,7 @@ public class NPCAI : MonoBehaviour
 
                         for (int ammount = Random.Range(1, 4); ammount > 0; --ammount)
                         {
-                            inventory.GiveItem(Random.Range(1, 6));
+                            inventory.GiveItem(Random.Range(2, 6));
                         }
                         Canvas.SetActive(true);
                         NpcName.text = this.name;
@@ -298,29 +313,42 @@ public class NPCAI : MonoBehaviour
 
     void Scavenge()
     {
+        if (scavCool) return;
+        scavCool = true;
+        scavCoolTimer = 0.5f;
+
+
         ScavengeTimer = 3;
-        isScavenging = true;
+        
         isDoneScavening = false;
         int count = 0;
         Item[] founditem = null;
         founditem = new Item[3];
-        
+        bool hasEnoughFood = false;
+        int i = 0;
         foreach (Item item in inventory.playerItems)
         {
-            int i = 0;
+            
             if (item == itemDatabase.GetItem(food))
             {
-                ++count;
+                //++count;
                 founditem[i] = item;
                 ++i;
+                
+                
             }
         }
-
-        if (count >= 3)
+        if (i >= 2)
         {
+            hasEnoughFood = true;
+        }
+
+        if (hasEnoughFood)
+        {
+            isScavenging = true;
             int counter = 0;
             whatSentenceAmIOn = scavengeStartResponseSuccess;
-            for (int i = 0; i < inventory.playerItems.Count -1; ++i)
+            for (i = 0; i < inventory.playerItems.Count -1; ++i)
             {
                 if (counter > 3) return;
                 if (inventory.playerItems[i].id == itemDatabase.GetItem(food).id)
