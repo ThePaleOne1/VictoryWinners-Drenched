@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
         rotation.x += -Input.GetAxis("Mouse Y");
 
-        rotation.x = Mathf.Clamp(rotation.x, -30f, 10f);
+        rotation.x = Mathf.Clamp(rotation.x, -30f, 15f);
 
         transform.eulerAngles = new Vector2(0, rotation.y) * cameraSpeed;
 
