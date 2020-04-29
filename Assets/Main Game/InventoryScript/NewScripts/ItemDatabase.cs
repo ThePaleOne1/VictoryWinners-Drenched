@@ -61,6 +61,12 @@ public class ItemDatabase : MonoBehaviour
 
             }),
 
+            new Item(7, "Sail", "Help the raft to sail at sea.",
+            new Dictionary<string, int> {
+                { "Value", 0 },
+
+            }),
+
         };
     }
 }
