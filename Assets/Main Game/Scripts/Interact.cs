@@ -72,7 +72,7 @@ public class Interact : MonoBehaviour
 
     private void Update()
     {
-        if (suitcase && Input.GetMouseButtonDown(0))
+        if (suitcase && Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(CoronaVirus());
 

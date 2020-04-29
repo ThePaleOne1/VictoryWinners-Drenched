@@ -8,7 +8,7 @@ public class NPCAI : MonoBehaviour
 {
     bool hasAwoken = false;
     Animator anim;
-
+    [SerializeField] GameObject interactPrompt;
     [SerializeField] GameObject Canvas;
     [SerializeField] Text NpcName;
     [SerializeField] Text NpcDialogue;
@@ -30,6 +30,7 @@ public class NPCAI : MonoBehaviour
     bool isFollowing = false;
     [SerializeField] float followDistance;
     bool isScavenging = false;
+    bool isDoneScavening = false;
 
     bool interactCooldown = false;
 
@@ -39,22 +40,56 @@ public class NPCAI : MonoBehaviour
     [SerializeField] int goAwayResponse;
     [SerializeField] int goodbyeResponse;
     [SerializeField] int tradeRespones;
-    [SerializeField] int scavengeStartResponse;
-    [SerializeField] int scavengeMinResponse;
+    [SerializeField] int scavengeStartResponseSuccess;
+    [SerializeField] int scavengeStartResponseFailure;
+    [SerializeField] int scavengeMidResponse;
     [SerializeField] int scavengeEndResponse;
+
+    Inventory inventory;
+    ItemDatabase itemDatabase;
+    int food = 4;
+    float ScavengeTimer = 0;
+    SlotPanel slotPanel;
+    bool scavCool = false;
+    float scavCoolTimer = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
+        slotPanel = FindObjectOfType<SlotPanel>();
+        itemDatabase = FindObjectOfType<ItemDatabase>();
+        inventory = FindObjectOfType<Inventory>();
         anim = GetComponent<Animator>();
         Canvas.SetActive(false);
         navAgent = GetComponent<NavMeshAgent>();
     }
-
+    
    
-
     // Update is called once per frame
     void Update()
     {
+        if (isScavenging)
+        {
+            ScavengeTimer -= Time.deltaTime;
+        }
+        if (ScavengeTimer < 0)
+        {
+            isDoneScavening = true;
+        }
+
+
+        if (scavCool)
+        {
+            if(scavCoolTimer > 0)
+            {
+                scavCoolTimer -= Time.deltaTime;
+            }
+            else
+            {
+                scavCool = false;
+            }
+        }
+
+
         if (choicesPanel.activeSelf)
         {
             ePrompt.enabled = false;
@@ -79,19 +114,19 @@ public class NPCAI : MonoBehaviour
 
                 case "2":
                     print("choose to scavenge");
-                    whatSentenceAmIOn = scavengeStartResponse;
-                    StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
+                    Scavenge();
+                    
                     hasChoice = false;
                     break;
 
-                case "3":
+                case "69420":
                     print("choose to trade");
                     whatSentenceAmIOn = tradeRespones;
                     StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
                     hasChoice = false;
                     break;
 
-                case "4":
+                case "3":
                     print("choose to leave the conversation");
                     whatSentenceAmIOn = goodbyeResponse;
                     StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
@@ -143,15 +178,19 @@ public class NPCAI : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (other.tag == "Player")
         {
-            if (!interactCooldown)
+            interactPrompt.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E) && !interactCooldown)
             {
-                interactCooldown = true;
-                Interact();
-                Invoke("CooldownReset", 0.2f);
+                
+                    interactPrompt.SetActive(true);
+                    interactCooldown = true;
+                    Interact();
+                    Invoke("CooldownReset", 0.2f);
+                
+
             }
-            
         }
     }
 
@@ -178,19 +217,48 @@ public class NPCAI : MonoBehaviour
             }
             else
             {
-                print("initiating interaction");
-                hasChoice = true;
-                whatSentenceAmIOn = defaultDialogue;
-                StartInteracting();
+                if (isScavenging)
+                {
+                    if (isDoneScavening)
+                    {
+                        whatSentenceAmIOn = scavengeEndResponse;
+
+                        for (int ammount = Random.Range(1, 4); ammount > 0; --ammount)
+                        {
+                            inventory.GiveItem(Random.Range(2, 6));
+                        }
+                        Canvas.SetActive(true);
+                        NpcName.text = this.name;
+                        StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
+                        isDoneScavening = false;
+                        isScavenging = false;
+                    }
+                    else
+                    {
+                        Canvas.SetActive(true);
+                        NpcName.text = this.name;
+                        whatSentenceAmIOn = scavengeMidResponse;
+                        StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
+                        
+                    }
+                }
+                else
+                {
+                    print("initiating interaction");
+                    hasChoice = true;
+                    whatSentenceAmIOn = defaultDialogue;
+                    StartInteracting();
+                }
             }
         }
     }
 
-        private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
             Canvas.SetActive(false);
+            interactPrompt.SetActive(false);
         }
     }
 
@@ -241,6 +309,62 @@ public class NPCAI : MonoBehaviour
         StopAllCoroutines();
         isTypling = false;
         NpcDialogue.text = Dialogue[whatSentenceAmIOn];
+    }
+
+    void Scavenge()
+    {
+        if (scavCool) return;
+        scavCool = true;
+        scavCoolTimer = 0.5f;
+
+
+        ScavengeTimer = 3;
+        
+        isDoneScavening = false;
+        int count = 0;
+        Item[] founditem = null;
+        founditem = new Item[3];
+        bool hasEnoughFood = false;
+        int i = 0;
+        foreach (Item item in inventory.playerItems)
+        {
+            
+            if (item == itemDatabase.GetItem(food))
+            {
+                //++count;
+                founditem[i] = item;
+                ++i;
+                
+                
+            }
+        }
+        if (i >= 2)
+        {
+            hasEnoughFood = true;
+        }
+
+        if (hasEnoughFood)
+        {
+            isScavenging = true;
+            int counter = 0;
+            whatSentenceAmIOn = scavengeStartResponseSuccess;
+            for (i = 0; i < inventory.playerItems.Count -1; ++i)
+            {
+                if (counter > 3) return;
+                if (inventory.playerItems[i].id == itemDatabase.GetItem(food).id)
+                {
+                    slotPanel.RemoveItem(inventory.playerItems[i]);
+                }
+            }
+        }
+        else
+        {
+
+            whatSentenceAmIOn = scavengeStartResponseFailure;
+        }
+
+
+        StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
     }
     IEnumerator TypeSentence(string sentence)
     {
