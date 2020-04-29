@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ReasourceScript : MonoBehaviour
 {
+    [SerializeField] GameObject axe;
 
     public Inventory AddItem;
 
@@ -22,8 +23,13 @@ public class ReasourceScript : MonoBehaviour
 
     
     Animator anim;
+
+    ItemDatabase database;
+    bool axeEnabled = false;
     void Start()
     {
+        database = FindObjectOfType<ItemDatabase>();
+
         AddItem = GameObject.FindObjectOfType<Inventory>();
         
         anim = GetComponent<Animator>();
@@ -32,6 +38,30 @@ public class ReasourceScript : MonoBehaviour
 
         controller = GetComponent<PlayerController>();
     }
+
+    void Update()
+    {
+        //axeEnabled = false;
+        //foreach (var item in AddItem.playerItems)
+        //{
+        //    if (item.id == 1)
+        //    {
+        //        axeEnabled = true;
+        //    }
+        //}
+
+        if(AddItem.playerItems.Contains(database.GetItem(1)))
+        {
+            axe.SetActive(true);
+            print("axe found");
+        }
+        else
+        {
+            axe.SetActive(false);
+            print("axe not found");
+        }
+    }
+
 
     GameObject hitObj;
     private void OnTriggerStay(Collider col)
@@ -53,7 +83,16 @@ public class ReasourceScript : MonoBehaviour
                     Invoke("HitTree", cooldown);
 
                     col.GetComponent<Tree>().isHit = true;
-                    AddItem.GiveItem(2);
+
+                   
+                    
+                        AddItem.GiveItem(2);
+                        if (axe.activeSelf)
+                        {
+                            AddItem.GiveItem(2);
+                        }
+                    
+                   
 
                 }
 
