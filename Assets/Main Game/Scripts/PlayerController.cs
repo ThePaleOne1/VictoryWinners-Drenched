@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
                     Jump();
                 }
             }
-            Debug.Log("grounded");
+            //Debug.Log("grounded");
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.GetComponent<Animator>().SetBool("IsGrounded", false);
 
-            Debug.Log("falling");
+            //Debug.Log("falling");
         }
         moveDirection.y -= gravity * Time.deltaTime;
 
