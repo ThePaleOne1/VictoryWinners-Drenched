@@ -172,7 +172,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   attackDamage: 10
-  sanityDamage: 2
+  sanityDamage: 10
   attackSpeed: 5
   attackTimer: 0
   playerDamage: 2

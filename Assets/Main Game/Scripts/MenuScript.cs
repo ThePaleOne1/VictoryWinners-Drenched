@@ -14,10 +14,21 @@ public class MenuScript : MonoBehaviour
 
     public GameObject Crafting;
 
+    public Text daysAlive;
+
     // Start is called before the first frame update
     void Start()
     {
         mainMenu.SetActive(true);
+
+        LoadScore();
+    }
+
+    public void LoadScore()
+    {
+        GameData data = SaveSystem.LoadScore();
+
+        daysAlive.text = "Longest Survived: " + data.daysAlive + " days";
     }
 
     public void newGame(int index)
