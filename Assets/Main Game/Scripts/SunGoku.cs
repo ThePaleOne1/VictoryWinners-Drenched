@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SunGoku : MonoBehaviour
 {
@@ -12,14 +13,26 @@ public class SunGoku : MonoBehaviour
 
     public float drainSanity;
 
+    public bool daySurvived;
+
+    public int daysAlive;
+
+    public int mostDaysAlive;
+
     public GameObject dayNNite;
+
+    PlayerController controller;
 
     [SerializeField] ResourceMeter statusStuff;
     
     // Start is called before the first frame update
     void Start()
     {
+        controller = PlayerManager.instance.player.GetComponent<PlayerController>();
 
+        GameData data = SaveSystem.LoadScore();
+
+        mostDaysAlive = data.daysAlive;
     }
 
     // Update is called once per frame
@@ -30,7 +43,20 @@ public class SunGoku : MonoBehaviour
 
        angleZ = dayNNite.transform.eulerAngles.z;
 
+        if (controller.Dead)
+        {
+            SaveScore();
+        }   
+
        DayCycle();
+    }
+
+    void SaveScore()
+    {        
+       if (daysAlive >= mostDaysAlive)
+       {
+          SaveSystem.SaveScore(this);
+       }             
     }
 
     void DayCycle()
@@ -38,32 +64,42 @@ public class SunGoku : MonoBehaviour
         NightTime();
         DayTime();
 
-        if (dayTime)
+        if (angleZ > 120)
         {
-            //Debug.Log("IT'S DAY");
+            dayTime = false;
         }
 
-        if (!dayTime)
+        if (angleZ < 120)
         {
-            //Debug.Log("IT'S NIGHT");
-
-            statusStuff.sanity -= drainSanity * Time.deltaTime;
-        }
+            dayTime = true;
+        }     
     }
 
     void NightTime()
     {
-        if (angleZ > 120)
-        {           
-            dayTime = false;           
-        }
+        if (!dayTime)
+        {
+            if (daySurvived)
+            {
+                if (!controller.Dead)
+                {
+                    ++daysAlive;
+
+                    daySurvived = false;
+                }               
+            }
+        }       
     }
 
     void DayTime()
     {
-        if(angleZ < 120)
+        if (dayTime)
         {
-            dayTime = true;
+            //Debug.Log("IT'S NIGHT");
+
+            daySurvived = true;
+
+            statusStuff.sanity -= drainSanity * Time.deltaTime;
         }
     }   
 }

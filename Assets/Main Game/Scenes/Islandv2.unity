@@ -29038,10 +29038,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2309716997863563433, guid: 7d110deb742f57440b0cbf454c3ca40f,
+        type: 3}
+      propertyPath: Speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309716997863563433, guid: 7d110deb742f57440b0cbf454c3ca40f,
+        type: 3}
+      propertyPath: resource
+      value: 
+      objectReference: {fileID: 602435988}
     - target: {fileID: 2309716997863563434, guid: 7d110deb742f57440b0cbf454c3ca40f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309716997863563434, guid: 7d110deb742f57440b0cbf454c3ca40f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7341969263497613348, guid: 7d110deb742f57440b0cbf454c3ca40f,
         type: 3}
@@ -29421,6 +29436,16 @@ PrefabInstance:
       propertyPath: statusHUD
       value: 
       objectReference: {fileID: 3060682266871252830}
+    - target: {fileID: 2794819741829566530, guid: b68c2022abf06fe46af64371082c5a60,
+        type: 3}
+      propertyPath: drainFood
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794819741829566530, guid: b68c2022abf06fe46af64371082c5a60,
+        type: 3}
+      propertyPath: drainHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2794819741829566531, guid: b68c2022abf06fe46af64371082c5a60,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30648,7 +30673,7 @@ PrefabInstance:
     - target: {fileID: 8813444327176652192, guid: eeb5ca0d88dc7aa47b4a78eac4906ce4,
         type: 3}
       propertyPath: rotateSpeed
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeb5ca0d88dc7aa47b4a78eac4906ce4, type: 3}
@@ -30964,6 +30989,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393731909022092300, guid: ebebe518fc537d24796c739bba324ccb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 263.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393731909022092300, guid: ebebe518fc537d24796c739bba324ccb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -548.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebebe518fc537d24796c739bba324ccb, type: 3}

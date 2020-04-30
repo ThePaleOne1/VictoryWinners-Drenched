@@ -3732,7 +3732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1417486415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3749,7 +3749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000038147, y: 0.000015259}
+  m_AnchoredPosition: {x: -547, y: -113}
   m_SizeDelta: {x: 417.1, y: 156.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417486416
@@ -3771,8 +3771,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: e6918b5f981dd92419f813f2d47ce17e, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3783,7 +3783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Five Nights at Freddy's
+  m_Text: 
 --- !u!222 &1417486417
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4327,6 +4327,7 @@ MonoBehaviour:
   Controls: {fileID: 1814338317}
   Status: {fileID: 876351770}
   Crafting: {fileID: 0}
+  daysAlive: {fileID: 1417486416}
 --- !u!95 &1747042290
 Animator:
   serializedVersion: 3
