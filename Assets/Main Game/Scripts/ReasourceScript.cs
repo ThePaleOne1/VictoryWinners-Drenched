@@ -89,7 +89,7 @@ public class ReasourceScript : MonoBehaviour
                         AddItem.GiveItem(2);
                         if (axe.activeSelf)
                         {
-                            AddItem.GiveItem(2);
+                            AddItem.GiveItem(1);
                         }
                     
                    

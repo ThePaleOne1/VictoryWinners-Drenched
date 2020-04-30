@@ -55,13 +55,22 @@ public class CraftRecipeDatabase : MonoBehaviour
                 5, 2, 2
             }),
 
-            // To craft planks for Sail.
+            // To craft Sail.
             new CraftRecipe(7,
             new int[] {
                 5, 5, 5,
                 5, 2, 5,
                 5, 2, 5
+            }),
+
+            // To craft a raft
+            new CraftRecipe(8,
+            new int[] {
+                0, 7, 0,
+                0, 6, 0,
+                6, 6, 6
             })
+
         };
     }
 }
