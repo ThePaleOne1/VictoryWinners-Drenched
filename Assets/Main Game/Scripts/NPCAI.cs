@@ -44,6 +44,7 @@ public class NPCAI : MonoBehaviour
     [SerializeField] int scavengeStartResponseFailure;
     [SerializeField] int scavengeMidResponse;
     [SerializeField] int scavengeEndResponse;
+    [SerializeField] int scavengedAlreadyResponse;
 
     Inventory inventory;
     ItemDatabase itemDatabase;
@@ -52,6 +53,14 @@ public class NPCAI : MonoBehaviour
     SlotPanel slotPanel;
     bool scavCool = false;
     float scavCoolTimer = 0.5f;
+
+
+    bool hasScaveneged = false;
+
+    [SerializeField] float wanderRange = 10;
+    bool canWander = false;
+    bool isWandering = false;
+    Vector3 navDesitination;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +70,7 @@ public class NPCAI : MonoBehaviour
         anim = GetComponent<Animator>();
         Canvas.SetActive(false);
         navAgent = GetComponent<NavMeshAgent>();
+        hasScaveneged = false;
     }
     
    
@@ -89,6 +99,34 @@ public class NPCAI : MonoBehaviour
             }
         }
 
+        //if (canWander)
+        //{
+        //    print("can wander");
+        //    if (!isWandering || !navAgent.isOnNavMesh)
+        //    {
+        //        print("chose new destination");
+        //        navDesitination = Random.insideUnitSphere * wanderRange;
+        //        navAgent.SetDestination(navDesitination);
+        //        isWandering = true;
+        //        navDesitination = navAgent.pathEndPosition;
+        //    }
+        //    else if (transform.position == navDesitination) 
+        //    {
+        //        print("reached destination");
+        //        isWandering = false;
+        //    }
+        //}
+        //else if(!isFollowing)
+        //{
+        //    print("can't wander");
+        //    //navAgent.path = null;
+        //}
+
+        if (!navAgent.isOnNavMesh)
+        {
+            navAgent.SetDestination(Random.insideUnitSphere*wanderRange);
+        }
+
 
         if (choicesPanel.activeSelf)
         {
@@ -102,10 +140,12 @@ public class NPCAI : MonoBehaviour
                     isFollowing = !isFollowing;
                     if (!isFollowing)
                     {
+                        canWander = false;
                         whatSentenceAmIOn = goAwayResponse;
                     }
                     else
                     {
+                        canWander = true;
                         whatSentenceAmIOn = followResponse;
                     }
                     StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
@@ -196,6 +236,7 @@ public class NPCAI : MonoBehaviour
 
     void Interact()
     {
+        canWander = false;
         if (!hasAwoken)
         {
             anim.SetTrigger("GetUp");
@@ -232,6 +273,7 @@ public class NPCAI : MonoBehaviour
                         StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
                         isDoneScavening = false;
                         isScavenging = false;
+                        hasScaveneged = true;
                     }
                     else
                     {
@@ -286,6 +328,7 @@ public class NPCAI : MonoBehaviour
     {
         Canvas.SetActive(false);
         StopAllCoroutines();
+        canWander = true;
     }
 
     void NextSentence()
@@ -313,6 +356,15 @@ public class NPCAI : MonoBehaviour
 
     void Scavenge()
     {
+        if (hasScaveneged)
+        {
+            whatSentenceAmIOn = scavengedAlreadyResponse;
+            StartCoroutine(TypeSentence(Dialogue[whatSentenceAmIOn]));
+            return;
+
+        }
+
+
         if (scavCool) return;
         scavCool = true;
         scavCoolTimer = 0.5f;
