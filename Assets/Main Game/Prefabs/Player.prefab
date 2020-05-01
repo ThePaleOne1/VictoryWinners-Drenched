@@ -866,7 +866,12 @@ MonoBehaviour:
   walkSpeed: 0
   runSpeed: 0
   cameraSpeed: 0
+  jumpHeight: 0
   gravity: 20
+  sprintEnabled: 0
+  Dead: 0
+  isPaused: 0
+  mouseLook: 0
 --- !u!114 &3164723480085935761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,6 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2842f4c48c3f1b9438f6818a4caf6698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axe: {fileID: 0}
   AddItem: {fileID: 0}
   cooldown: 0.5
   resourceMeter: {fileID: 0}

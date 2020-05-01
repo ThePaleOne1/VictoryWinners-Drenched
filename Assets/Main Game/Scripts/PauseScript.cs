@@ -10,6 +10,10 @@ public class PauseScript : MonoBehaviour
 
     public GameObject gameOverScreen;
 
+    public Text daysAlive;
+
+    SunGoku dayNnite;
+
     GameObject player;
 
     PlayerController controller;
@@ -30,6 +34,8 @@ public class PauseScript : MonoBehaviour
         player = PlayerManager.instance.player;
 
         controller = player.GetComponent<PlayerController>();
+
+        dayNnite = FindObjectOfType<SunGoku>();
     }
 
     // Update is called once per frame
@@ -85,5 +91,7 @@ public class PauseScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         controller.mouseLook = false;
         gameOverScreen.SetActive(true);
+
+        daysAlive.text = "You survived " + dayNnite.daysAlive + " days";
     }
 }
