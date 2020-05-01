@@ -4304,6 +4304,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14872,6 +14878,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15521,6 +15533,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16534,6 +16552,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18020,6 +18044,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20129,6 +20159,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23700,6 +23736,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24147,7 +24189,7 @@ MonoBehaviour:
   currentEnemySpawn: 0
   currentSpawnTime: 0
   maxSpawnTime: 10
-  enemy: {fileID: 6049037201211956654, guid: f2dedb80a7d29ea4ebedec183aac9afe, type: 3}
+  enemy: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49, type: 3}
   newEnemy: {fileID: 0}
 --- !u!4 &1749262341
 Transform:
@@ -27094,6 +27136,12 @@ PrefabInstance:
       propertyPath: maxSpawnTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4795198921740093954, guid: bcc02cc9c24154a4f9ef3759e6e02208,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3463249106373746863, guid: 9b420aae8a3d6d7449cba46ae749de49,
+        type: 3}
     - target: {fileID: 4795198921740093955, guid: bcc02cc9c24154a4f9ef3759e6e02208,
         type: 3}
       propertyPath: m_LocalPosition.x
