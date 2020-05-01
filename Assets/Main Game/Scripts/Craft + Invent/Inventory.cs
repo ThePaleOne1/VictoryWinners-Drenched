@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<Item> playerItems = new List<Item>();
+
     [SerializeField]
     private UIInventory inventoryUI;
     ItemDatabase itemDatabase;
@@ -17,10 +18,9 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
-        //GiveItem(1);
-        //GiveItem(2);
-        //GiveItem(3);
-        //GiveItem(4);
+        
+        
+        
     }
 
     public void GiveItem(int id)
@@ -41,6 +41,7 @@ public class Inventory : MonoBehaviour
     public Item CheckForItem(int id)
     {
         return playerItems.Find(item => item.id == id);
+        
     }
 
     public void RemoveItem(int id)
@@ -52,6 +53,8 @@ public class Inventory : MonoBehaviour
             playerItems.Remove(itemToRemove);
         }
     }
+
+    
 }
 
 

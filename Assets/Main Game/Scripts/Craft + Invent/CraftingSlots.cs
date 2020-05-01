@@ -10,6 +10,8 @@ public class CraftingSlots : MonoBehaviour
     public UIItem craftResultSlot;
 
     
+
+    
     
 
     public void UpdateRecipe()

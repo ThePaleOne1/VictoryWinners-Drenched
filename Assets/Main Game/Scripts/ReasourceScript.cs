@@ -50,7 +50,7 @@ public class ReasourceScript : MonoBehaviour
         //    }
         //}
 
-        if(AddItem.playerItems.Contains(database.GetItem(1)))
+        if(AddItem.playerItems.Contains(database.GetItem(2)))
         {
             axe.SetActive(true);
             print("axe found");

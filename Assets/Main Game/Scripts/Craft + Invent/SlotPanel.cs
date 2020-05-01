@@ -7,6 +7,7 @@ public class SlotPanel : MonoBehaviour
     public List<UIItem> uiItems = new List<UIItem>();
     public int numberOfSlots;
     public GameObject slotPrefabs;
+    
 
     void Awake()
     {
@@ -23,21 +24,25 @@ public class SlotPanel : MonoBehaviour
     public void UpdateSlot(int slot, Item item)
     {
         uiItems[slot].UpdateItem(item);
+
     }
 
     public void AddNewItem(Item item)
     {
         UpdateSlot(uiItems.FindIndex(i => i.item == null), item); // if it finds an empty slot, it will add a new item.
+
     }
 
     public void RemoveItem(Item item)
     {
         UpdateSlot(uiItems.FindIndex(i => i.item == item), null); // if the item is the name, it will be remove
+        
     }
 
     public void EmptyAllSlots()
     {
         uiItems.ForEach(i => i.UpdateItem(null));
+        
     }
 
     public bool ContainsEmptySlot()
@@ -45,6 +50,7 @@ public class SlotPanel : MonoBehaviour
         foreach(UIItem uii in uiItems)
         {
             if (uii.item == null) return true;
+            
         }
         return false;
     }

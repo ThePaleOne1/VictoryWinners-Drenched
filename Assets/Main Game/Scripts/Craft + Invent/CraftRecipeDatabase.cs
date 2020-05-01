@@ -7,7 +7,7 @@ public class CraftRecipeDatabase : MonoBehaviour
 {
     public List<CraftRecipe> recipes = new List<CraftRecipe>();
     private ItemDatabase itemDatabase;
-
+    public bool haveRaft;
     private void Awake()
     {
         itemDatabase = GetComponent<ItemDatabase>();
@@ -64,11 +64,12 @@ public class CraftRecipeDatabase : MonoBehaviour
             }),
 
             // To craft a raft.
-            new CraftRecipe(8,
+            new CraftRecipe(8, 
             new int[] {
                 0, 7, 0,
                 0, 6, 0,
-                6, 6, 6
+                6, 6, 6,
+               
             })
         };
     }
