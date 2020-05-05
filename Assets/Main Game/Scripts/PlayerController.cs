@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3(xSpeed, 0, zSpeed);
 
-        moveDirection = Camera.main.transform.TransformDirection(moveDirection) * Time.deltaTime;
+        moveDirection = Camera.main.transform.TransformDirection(moveDirection);
 
         if (!isRunning)
         {
